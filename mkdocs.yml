@@ -12,8 +12,7 @@ repo_name: 'sashtiachuthank/sre_s5_docs'
 repo_url: 'https://github.ibm.com/sashtiachuthank/sre_s5_docs'
 docs_dir: 'docs'
 site_dir: 'site'
-remote_branch: 'gh-pages'
-remote_name: 'origin'
+
 
 theme:
   name: material
@@ -36,7 +35,14 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
   features:
+#    - announce.dismiss        # Button to dismiss the current temporary announcement
+    - content.action.edit
+    - content.action.feedback
+#    - content.action.view
+#    - content.tabs.link
     # - navigation.expand       # Expand left sidebar by default
+    - navigation.indexes      # Attach documents to sections, useful for providing overview pages
+    - navigation.instant      # Single page instant refresh
 #    - navigation.sections     # Top level tabs rendered in sidebar
 #    - navigation.tabs         # Navigation tabs across top. Comment this out to have navigation on the left
 #    - navigation.tabs.sticky  # Tab always displayed
@@ -46,3 +52,51 @@ theme:
     - search.share
     - search.suggest
     - tags
+#    - toc.integrate           # Integrate page TOC in left sidebar - wider page
+
+markdown_extensions:
+#  - pymdownx.highlight
+#  - pymdownx.superfences
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+  #    line_spans: __span
+  #    pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+#  - pymdownx.tilde
+#extra_css:
+#  - "stylesheets/extra_css.css"
+#extra_javascript:
+#  - javascripts/extra.js
