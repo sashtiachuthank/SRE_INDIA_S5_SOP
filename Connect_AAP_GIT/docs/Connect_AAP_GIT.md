@@ -1,6 +1,6 @@
 # How to connect AAP and GIT accounts
 
-Please find below the reference screenshots and follow the said steps
+Please follow the below steps for linking the AAP and GIT accounts. Post the two accounts got linked we can execute the scripts to the hosts.
 
 **Step: 1**
 
