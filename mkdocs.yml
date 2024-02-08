@@ -36,14 +36,7 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
   features:
-#    - announce.dismiss        # Button to dismiss the current temporary announcement
-    - content.action.edit
-    - content.action.feedback
-#    - content.action.view
-#    - content.tabs.link
     # - navigation.expand       # Expand left sidebar by default
-    - navigation.indexes      # Attach documents to sections, useful for providing overview pages
-    - navigation.instant      # Single page instant refresh
 #    - navigation.sections     # Top level tabs rendered in sidebar
 #    - navigation.tabs         # Navigation tabs across top. Comment this out to have navigation on the left
 #    - navigation.tabs.sticky  # Tab always displayed
