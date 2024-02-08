@@ -1,15 +1,59 @@
 site_name: "SRE DOCUMENTATION PAGE"
 # Project Information
+#site_url: "https://github.ibm.com/cio-common-cfg-auto-stds/cioccfgauto"
 site_url: 'https://pages.github.ibm.com/sashtiachuthank/sre_s5_docs/' 
+site_description: Common Configuration and Automation Standards across CIO
 site_author: Sashti Achuthan K
 
 # Repository Information
+#repo_name: 'cio-common-cfg-auto-stds/cioccfgauto'
+#repo_url: 'https://github.ibm.com/cio-common-cfg-auto-stds/cioccfgauto'
 repo_name: 'sashtiachuthank/sre_s5_docs'
 repo_url: 'https://github.ibm.com/sashtiachuthank/sre_s5_docs'
 docs_dir: 'docs'
 site_dir: 'site'
 remote_branch: 'gh-pages'
 remote_name: 'origin'
+
+theme:
+  name: material
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: blue
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  features:
+#    - announce.dismiss        # Button to dismiss the current temporary announcement
+    - content.action.edit
+    - content.action.feedback
+#    - content.action.view
+#    - content.tabs.link
+    # - navigation.expand       # Expand left sidebar by default
+    - navigation.indexes      # Attach documents to sections, useful for providing overview pages
+    - navigation.instant      # Single page instant refresh
+#    - navigation.sections     # Top level tabs rendered in sidebar
+#    - navigation.tabs         # Navigation tabs across top. Comment this out to have navigation on the left
+#    - navigation.tabs.sticky  # Tab always displayed
+    - navigation.top          # Back-to-top button. Rendered centered and just below the header
+    - navigation.tracking     # URL updated with active anchor
+    - navigation.path
+    - search.share
+    - search.suggest
+    - tags
+#    - toc.integrate           # Integrate page TOC in left sidebar - wider page
 
 markdown_extensions:
 #  - pymdownx.highlight
