@@ -1,9 +1,19 @@
 site_name: "SRE S5 Documents"
+# Project Information
+#site_url: "https://github.ibm.com/cio-common-cfg-auto-stds/cioccfgauto"
 site_url: 'https://pages.github.ibm.com/sashtiachuthank/sre_s5_docs/' 
+site_description: Common Configuration and Automation Standards across CIO
 site_author: Sashti Achuthan K
+
+# Repository Information
+#repo_name: 'cio-common-cfg-auto-stds/cioccfgauto'
+#repo_url: 'https://github.ibm.com/cio-common-cfg-auto-stds/cioccfgauto'
 repo_name: 'sashtiachuthank/sre_s5_docs'
 repo_url: 'https://github.ibm.com/sashtiachuthank/sre_s5_docs'
-
+docs_dir: 'docs'
+site_dir: 'site'
+remote_branch: 'gh-pages'
+remote_name: 'origin'
 
 theme:
   name: material
