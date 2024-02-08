@@ -1,0 +1,75 @@
+g53xr00007236.az13.dal.cpc.ibm.com | CHANGED | rc=0 >>
+Updating Subscription Management repositories.
+Red Hat Enterprise Linux 8 for x86_64 - AppStre  71 kB/s | 4.5 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - Supplem  58 kB/s | 3.8 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS   75 kB/s | 4.1 kB     00:00    
+Dependencies resolved.
+Nothing to do.
+Complete!
+Updating Subscription Management repositories.
+Red Hat Enterprise Linux 8 for x86_64 - AppStre  81 kB/s | 4.5 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - Supplem  65 kB/s | 3.8 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS   65 kB/s | 4.1 kB     00:00    
+Dependencies resolved.
+Nothing to do.
+Complete!
+g43xr00006755.az3.ash.cpc.ibm.com | CHANGED | rc=0 >>
+Updating Subscription Management repositories.
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS   93 kB/s | 4.1 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - AppStre  92 kB/s | 4.5 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - Supplem  77 kB/s | 3.8 kB     00:00    
+Dependencies resolved.
+Nothing to do.
+Complete!
+Updating Subscription Management repositories.
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS   76 kB/s | 4.1 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - AppStre  90 kB/s | 4.5 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - Supplem  90 kB/s | 3.8 kB     00:00    
+Dependencies resolved.
+Nothing to do.
+Complete!
+g43xr00006758.az3.ash.cpc.ibm.com | CHANGED | rc=0 >>
+Updating Subscription Management repositories.
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS   89 kB/s | 4.1 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - Supplem  85 kB/s | 3.8 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - AppStre 132 kB/s | 4.5 kB     00:00    
+Dependencies resolved.
+Nothing to do.
+Complete!
+Updating Subscription Management repositories.
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS   90 kB/s | 4.1 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - Supplem  89 kB/s | 3.8 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - AppStre 124 kB/s | 4.5 kB     00:00    
+Dependencies resolved.
+Nothing to do.
+Complete!
+g43xr00006757.az3.ash.cpc.ibm.com | CHANGED | rc=0 >>
+Updating Subscription Management repositories.
+Red Hat Enterprise Linux 8 for x86_64 - AppStre  96 kB/s | 4.5 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS   64 kB/s | 4.1 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - Supplem  86 kB/s | 3.8 kB     00:00    
+Dependencies resolved.
+Nothing to do.
+Complete!
+Updating Subscription Management repositories.
+Red Hat Enterprise Linux 8 for x86_64 - AppStre 110 kB/s | 4.5 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS   79 kB/s | 4.1 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - Supplem  66 kB/s | 3.8 kB     00:00    
+Dependencies resolved.
+Nothing to do.
+Complete!
+g44xr00007556.az4.ash.cpc.ibm.com | CHANGED | rc=0 >>
+Updating Subscription Management repositories.
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS   80 kB/s | 4.1 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - Supplem  70 kB/s | 3.8 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - AppStre  89 kB/s | 4.5 kB     00:00    
+Dependencies resolved.
+Nothing to do.
+Complete!
+Updating Subscription Management repositories.
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS   87 kB/s | 4.1 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - Supplem  61 kB/s | 3.8 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - AppStre  97 kB/s | 4.5 kB     00:00    
+Dependencies resolved.
+Nothing to do.
+Complete!
