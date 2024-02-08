@@ -1,9 +1,6 @@
 site_name: "SRE S5 Documents"
 site_url: 'https://pages.github.ibm.com/sashtiachuthank/sre_s5_docs/' 
-site_description: Common Configuration and Automation Standards across CIO
 site_author: Sashti Achuthan K
-
-# Repository Information
 repo_name: 'sashtiachuthank/sre_s5_docs'
 repo_url: 'https://github.ibm.com/sashtiachuthank/sre_s5_docs'
 
