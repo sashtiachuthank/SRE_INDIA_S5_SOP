@@ -16,6 +16,9 @@ theme:
   font:
     text: IBM Plex Sans
     code: IBM Plex Mono
+  palette:
+    primary: indigo
+    accent: indigo
   features:
 #    - announce.dismiss        # Button to dismiss the current temporary announcement
     - content.action.edit
