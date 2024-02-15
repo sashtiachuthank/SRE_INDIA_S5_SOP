@@ -36,55 +36,42 @@ Post that you will be prompted with the CPC request ID.
 
 **Step: 6**
 
-In sometime, you will be receiving a task successfull completion mail. 
-
-  > Once you recieved such mail please proceed with the below steps.
+In sometime, you will be receiving a task successfull completion mail. Once you recieved such mail please proceed with the below steps.
   
-  > If you didn't receive such mail then please reach to the #cirrus-platform-support slack channel.
-
+  > If you didn't receive such mail then please reach to the #cirrus-platform-support slack channel further assistance.
 
 ![pic3](Picture6.png)
 
 **Step: 7**
 
+Please execute the below command. If you are able to see the newly added disk then the CPC disk addition request is succeeded. 
+
+ > If not able to see the disk then reach to the #cirrus-platform-support slack channel for support.
+
+```bash
+# lsblk
+```
 ![pic3](Picture7.png)
 
-
-###Below commands can be used for multipath LV expansion
-
+###Use below commands for expanding the added disk space to the volume group and then the required size to the logical volume.
 ```bash
-
-# pvcreate /dev/mapper/mpathb
-# vgextend datavg /dev/mapper/mpathb
-# vgs
-# df -hTP /tempdb2
-# lvextend -L +2G /dev/mapper/datavg-tempdb2lv -r
-# df -hTP /tempdb2
-
+# pvcreate /dev/sdd
+# vgextend datavg /dev/sdd
+# lvextend -L +20G /dev/mapper/datavg-tempdb2 -r
 ```
+![pic3](Picture8.png)
 
----
-
-###Below commands can be used for LV expansion
-
-```bash
-[root@g53xr00006301 ~]# vgs
-VG       #PV #LV #SN Attr   VSize    VFree
-  datavg     2   9   0 wz--n-  199.99g  90.84g
-  systemvg   1   7   0 wz--n- <118.00g <78.73g
-[root@g53xr00006301 ~]# lvextend -L +20G /dev/mapper/datavg-datalv -r
-```
 **Before expansion:**
 ```bash
-[root@g53xr00006301 ~]# df -hTP /data/disk1
+[root@g53xr00007521 ~]# df -hTP /tempdb2
 Filesystem                Type  Size  Used Avail Use% Mounted on
-/dev/mapper/datavg-datalv xfs    30G   28G  1.6G  95% /data/disk1
-[root@g53xr00006301 ~]# 
+/dev/mapper/datavg-tempdb2 xfs    30G   28G  1.6G  95% /tempdb2
+[root@g53xr00007521 ~]# 
 ```
 **After expansion:**
 ```bash
-[root@g53xr00006301 ~]# df -hTP /data/disk1
+[root@g53xr00007521 ~]# df -hTP /tempdb2
 Filesystem                Type  Size  Used Avail Use% Mounted on
-/dev/mapper/datavg-datalv xfs    50G   29G   22G  57% /data/disk1
-[root@g53xr00006301 ~]#
+/dev/mapper/datavg-tempdb2 xfs    50G   29G   22G  57% /tempdb2
+[root@g53xr00007521 ~]#
 ```
