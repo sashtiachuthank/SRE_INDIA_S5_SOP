@@ -1,77 +1,75 @@
 Below listed are the Pre & Post check steps to be followed in DISRUPTIVE activities.
 
-Initially, before starting the activity save the log of your current putty session login and start the activity.
+1.  Initially, before starting the activity save the log of your current putty session login and start the activity.
 ![pic3](Picture1.png)   
-Check the uptime, system date time, redhat release version, uname details (This must be documented and shared where-ever required)
+2.  Check the uptime, system date time, redhat release version, uname details (This must be documented and shared where-ever required)
 ```bash
 # uptime;date;cat /etc/redhat-release;uname -a
 ```
-Check all available network interfaces.
+3.  Check all available network interfaces.
 ```bash
 # ifconfig -a
 ```
-Check the network statistics.
+4.  Check the network statistics.
+```bash
+# netstat -tulpn
+```
+5.  Check all the existing services details (which includes enabled/disabled & active/inactive services)
+```bash
+# systemctl list-unit-files
+```
+6.  Check the recursive disk utilization status. (If required add new disk to server and extend the LV)
+```bash
+# cat /etc/fstab
+# df -hTP
+```
+7.  Check the subscription manager status.
+```bash
+# subscription-manager status
+# subscription-manager list --installed
+```
+8.  Check the enabled and available repositories. 
+```bash
+# yum repolist all 
+```
+9.  Check and list out all the installed packages along with versions.
+```bash
+# rpm -qa | nl
+```
+10. Check and ensure the processes of applications and its related middlewares are in stopped state.
 
-Check all the existing services details (which includes enabled/disabled & active/inactive services)
+    a. Check the cronjobs for all active cron jobs for the current user:
+```bash
+# cronjob -l            ------> active cron jobs for the current user
+# crontab -u user -l    ------> show cron jobs for a specific user:
+```
+    b. The process of listing all the cron jobs for all users, we can use the below bash script.
+```bash
+!/bin/bash
+for user in $(cut -f1 -d: /etc/passwd); do
+    echo "Crontab for $user:"
+    sudo crontab -u $user -l
+    echo ""
+done
+```
 
-Check the recursive disk utilization status. (If required add new disk to server and extend the LV)
+11. Backup the fstab file, then comment out the mounts other than system related ones.
 
-Check the subscription manager status.
+Take backup of 
+                sshd configuration file.
+                pam.d authentication & configuration files.
+                DUO configuration files.
 
-Check the enabled and available repositories. 
+12. Keep ready with the root passwd. For safer side reset the root passwd of own.
 
-Check and list out all the installed packages along with versions.
-
-Check and ensure the processes of applications and its related domains are in stopped state.
-
-Check the cronjobs for all users.
-
-Backup the fstab file, then comment out the mounts other than system related ones.
-
-Take backup of sshd configuration file.
-
-Take backup of pam.d authentication & configuration files.
-
-Take backup of DUO configuration files.
-
-Remove all old kernels.
-
-change root passwd.
-
-Follow the steps mentioned in below pages (OS -Upgrade from 7 to 8)
-
-Use the fix steps only for the inhibitors which was listed during the activity.
-
-Post the ‘leapp upgrade reboot’ the server can be accessed only in console.
-
-In console, 
-    a.	Just test the connection of ssh and use fix steps as stated on screen.
-    b.	Remove the old DUO version and install the new version.
-    c.	After DUO installation replace the DUO configuration files from the backup (which was taken before the activity).
-    d.	Uncomment the fstab entries.
-    e.	Reboot the server again.
-
-Once the above steps are completed we will be able to SSH the server via putty.
-
-Install the falcon-sensor.
-
-Re-configure the QRadar.
-
-Post activity completion again do the steps mentioned above from step 1.
-
-Validate the Pre & Post outputs.
-
-Start the required domains (DB/Datastage/WAS/MQ).
-
-Notify the application team to start the application and to validate.
-
-Before the snapshot VM expires, 
+13. Before the snapshot VM expires, 
+    
     a.	The application team should validate the servers and get back to us for concerns.
     b.	We must resolve the raised issues.
 
-Else revert the snapshot from VM.
+    > Else revert the snapshot from VM.
 
-Note: Before making any changes in system files take a backup of that file in same location 
+***Note:*** Before making any changes in system files take a backup of that file in same location 
 
 ###***Useful Links:***
 
