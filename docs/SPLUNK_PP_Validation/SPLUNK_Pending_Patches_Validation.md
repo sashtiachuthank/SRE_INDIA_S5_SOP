@@ -1,3 +1,5 @@
+This article helps you for validating the pending patches extracted from SPLUNK portal.
+
 **Step: 1**
 
 Extract the pending patches CSV file from SPLUNK portal.

@@ -1,6 +1,6 @@
 # How to MERGE AAP and GIT accounts
 
-Please follow the below steps for linking the AAP and GIT accounts. Post the two accounts got linked we can execute the scripts to the hosts.
+Please follow the below steps for linking the AAP and GIT accounts. Post the two accounts got linked we can execute the scripts to the hosts via AAP.
 
 **Step: 1**
 
