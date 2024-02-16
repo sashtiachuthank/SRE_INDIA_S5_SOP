@@ -49,8 +49,9 @@ As per the above job output the 2 advisories are not appliable in the respective
 
 **Step: 8**
 
-To mark them as not applicable in SPLUNK portal, In AAP use the below template 
-            *** “AO_DS_JT_Proactive_Patching_NotApplicable” ***
+To mark them as not applicable in SPLUNK portal, in AAP use the below template
+
+        ***“AO_DS_JT_Proactive_Patching_NotApplicable”***
 
 **Step: 9**
 
