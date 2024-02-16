@@ -1,40 +1,47 @@
-This article helps you to create and add a new virtual disk to an existing Linux virtual machine on CPC. Here are the steps for adding a new virtual disk on a Linux virtual machine (X86).  
+<h1 align="center">CPC Disk Addition</h1>  
+## Goal
+
+This article helps you to create and add a new virtual disk to an existing Linux virtual machine on CPC.
+
+## Procedure
+
+Here are the steps for adding a new virtual disk on a Linux virtual machine.  
 
 
 📌  ***No downtime is required for this activity***
 
 
-**Step: 1**
+**Step: :one:**
 
 Search for the respective host in the CPC portal based on the IMAP or project ID and click it to open further. 
 
 ![pic3](Picture1.png)
 
-**Step: 2**
+**Step: :two:**
 
 Once we got the host screen, check the list of existing disk volumes. Use the ***"Edit Volumes"*** option for adding new volume to the host.
 
 ![pic3](Picture2.png)
 
-**Step: 3**
+**Step: :three:**
 
 The ***"Edit Volumes"*** screen will be like this. In that click the ***"Add Disk +"*** option.
 
 ![pic3](Picture3.png)
 
-**Step: 4**
+**Step: :four:**
 
 Select the required disk space and use the ***"Add Volumes"*** option for volume addition.
 
 ![pic3](Picture4.png)
 
-**Step: 5**
+**Step: :five:**
 
 Post that you will be prompted with the CPC request ID.
 
 ![pic3](Picture5.png)
 
-**Step: 6**
+**Step: :six:**
 
 In sometime, you will be receiving a task successfull completion mail. Once you recieved such mail please proceed with the below steps.
   
@@ -42,7 +49,7 @@ In sometime, you will be receiving a task successfull completion mail. Once you 
 
 ![pic3](Picture6.png)
 
-**Step: 7**
+**Step: :seven:**
 
 Please execute the below command. If you are able to see the newly added disk then the CPC disk addition request is succeeded. 
 
