@@ -1,3 +1,7 @@
+---
+glightbox: false
+---
+
 <h1 align="center">CPC Disk Addition</h1>  
 ## Goal
 

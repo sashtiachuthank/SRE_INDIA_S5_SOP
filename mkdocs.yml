@@ -54,8 +54,8 @@ markdown_extensions:
       generic: true
   - pymdownx.betterem:
       smart_enable: all
-  - pymdownx.caret
-  - pymdownx.details
+#  - pymdownx.caret
+#    - pymdownx.details
   - pymdownx.emoji:
       emoji_generator: !!python/name:materialx.emoji.to_svg
       emoji_index: !!python/name:materialx.emoji.twemoji
@@ -80,6 +80,13 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
+
+plugins:
+  - glightbox:
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - skip-lightbox
 #  - pymdownx.tilde
 #extra_css:
 #  - "stylesheets/extra_css.css"
