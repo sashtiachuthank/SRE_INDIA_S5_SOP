@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#useful-links" class="md-skip">
+        <a href="#goal" class="md-skip">
           Skip to content
         </a>
       
@@ -408,11 +408,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#useful-links" class="md-nav__link">
     <span class="md-ellipsis">
       Useful Links:
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -595,11 +619,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#useful-links" class="md-nav__link">
     <span class="md-ellipsis">
       Useful Links:
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -618,43 +666,50 @@
                   
 
 
-  <h1>Disruptive OS Activity Prerequisites</h1>
+<h1 align="center">Prerequisites for Disruptive OS Activity</h1>
 
+<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
+<p>This article helps you with the pre-check command guidance for disruptive OS activity.</p>
+<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
 <p>Below listed are the Pre &amp; Post check steps to be followed in DISRUPTIVE activities.</p>
-<ol>
-<li>Initially, before starting the activity save the log of your current putty session login and start the activity.
-<img alt="pic3" src="../Picture1.png" />   </li>
-<li>Check the uptime, system date time, redhat release version, uname details (This must be documented and shared where-ever required)
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before starting any activity save the log of your current putty session login 
+and start the activity.</p>
+</div>
+<figure>
+  <img alt="pic3" src="../Picture2.png" width="300" />
+</figure>
+<p><img alt="1⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/31-20e3.svg" title=":one:" /> Check the uptime, system date time, redhat release version, uname details (This must be documented and shared where-ever required)
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># uptime;date;cat /etc/redhat-release;uname -a</span>
-</code></pre></div></li>
-<li>Check all available network interfaces.
+</code></pre></div>
+<img alt="2⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/32-20e3.svg" title=":two:" /> Check all available network interfaces.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># ifconfig -a</span>
-</code></pre></div></li>
-<li>Check the network statistics.
+</code></pre></div>
+<img alt="3⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/33-20e3.svg" title=":three:" /> Check the network statistics.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># netstat -tulpn</span>
-</code></pre></div></li>
-<li>Check all the existing services details (which includes enabled/disabled &amp; active/inactive services)
+</code></pre></div>
+<img alt="4⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/34-20e3.svg" title=":four:" /> Check all the existing services details (which includes enabled/disabled &amp; active/inactive services)
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># systemctl list-unit-files</span>
-</code></pre></div></li>
-<li>Check the recursive disk utilization status. (If required add new disk to server and extend the LV)
+</code></pre></div>
+<img alt="5⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/35-20e3.svg" title=":five:" /> Check the recursive disk utilization status. (If required add new disk to server and extend the LV)
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># cat /etc/fstab</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># df -hTP</span>
-</code></pre></div></li>
-<li>Check the subscription manager status.
+</code></pre></div>
+<img alt="6⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/36-20e3.svg" title=":six:" /> Check the subscription manager status.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># subscription-manager status</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># subscription-manager list --installed</span>
-</code></pre></div></li>
-<li>Check the enabled and available repositories. 
+</code></pre></div>
+<img alt="7⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/37-20e3.svg" title=":seven:" /> Check the enabled and available repositories. 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># yum repolist all </span>
-</code></pre></div></li>
-<li>Check and list out all the installed packages along with versions.
+</code></pre></div>
+<img alt="8⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/38-20e3.svg" title=":eight:" /> Check and list out all the installed packages along with versions.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># rpm -qa | nl</span>
-</code></pre></div></li>
-<li>
-<p>Check and ensure the processes of applications and its related middlewares are in stopped state.</p>
-<p>a. Check the cronjobs for all active cron jobs for the current user:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># cronjob -l            ------&gt; active cron jobs for the current user</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># crontab -u user -l    ------&gt; show cron jobs for a specific user:</span>
+</code></pre></div>
+<img alt="9⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/39-20e3.svg" title=":nine:" /> Check and ensure the processes of applications and its related middlewares are in stopped state.</p>
+<p>a. Check the cronjobs for all active cron jobs for the current user:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># cronjob -l            ------&gt; active cron jobs for the current user</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># crontab -u user -l    ------&gt; show cron jobs for a specific user</span>
 </code></pre></div>
 b. The process of listing all the cron jobs for all users, we can use the below bash script.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>!/bin/bash
@@ -663,29 +718,19 @@ b. The process of listing all the cron jobs for all users, we can use the below 
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span>sudo<span class="w"> </span>crontab<span class="w"> </span>-u<span class="w"> </span><span class="nv">$user</span><span class="w"> </span>-l
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
 <a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">done</span>
-</code></pre></div></p>
-</li>
-<li>
-<p>Backup the fstab file, then comment out the mounts other than system related ones.</p>
-</li>
-</ol>
+</code></pre></div>
+:ten: Backup the fstab file, then comment out the mounts other than system related ones.</p>
 <p>Take backup of 
                 sshd configuration file.
                 pam.d authentication &amp; configuration files.
                 DUO configuration files.</p>
-<ol>
-<li>
-<p>Keep ready with the root passwd. For safer side reset the root passwd of own.</p>
-</li>
-<li>
-<p>Before the snapshot VM expires, </p>
-<p>a.  The application team should validate the servers and get back to us for concerns.
-b.  We must resolve the raised issues.</p>
-<blockquote>
-<p>Else revert the snapshot from VM.</p>
-</blockquote>
-</li>
-</ol>
+<p>:eleven: Keep ready with the root passwd. For safer side reset the root passwd of own.</p>
+<p>:twelve: Before the snapshot VM expires, </p>
+<div class="highlight"><pre><span></span><code>a.  The application team should validate the servers and get back to us for concerns.
+b.  We must resolve the raised issues.
+
+&gt; Else revert the snapshot from VM.
+</code></pre></div>
 <p><strong><em>Note:</em></strong> Before making any changes in system files take a backup of that file in same location </p>
 <h3 id="useful-links"><strong><em>Useful Links:</em></strong><a class="headerlink" href="#useful-links" title="Permanent link">&para;</a></h3>
 <p>For Leapp package - <a href="https://access.redhat.com/articles/3664871">https://access.redhat.com/articles/3664871</a> </p>
