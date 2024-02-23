@@ -44,12 +44,12 @@ In AAP, run an ad-hoc job as shown below.
 
 Validate the job output and list out the applicable and not applicable advisories.
 
-        a. If the package name is listed APPLICABLE
+        a. If the package name is listed, then it is APPLICABLE
         b. If the package name is not listed, then it is NOT_APPLICABLE
 
-<a href="ad_hoc_command_701863.txt" download>ad_hoc_command_701863.txt</a>
-
 **Step: 7**
+
+<a href="ad_hoc_command_701863.txt" download>ad_hoc_command_701863.txt</a>
 
 As per the above job output the 2 advisories are not appliable in the respective hosts.
 
@@ -57,7 +57,7 @@ As per the above job output the 2 advisories are not appliable in the respective
 
 To mark them as not applicable in SPLUNK portal, in AAP use the below template
 
-        ***“AO_DS_JT_Proactive_Patching_NotApplicable”***
+***“AO_DS_JT_Proactive_Patching_NotApplicable”***
 
 **Step: 9**
 
