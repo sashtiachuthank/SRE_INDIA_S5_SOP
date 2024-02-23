@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://pages.github.ibm.com/sashtiachuthank/sre_s5_docs/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://pages.github.ibm.com/sashtiachuthank/sre_s5_docs/CPC_Disk_Addition/CPC_Disk_Addition/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://pages.github.ibm.com/sashtiachuthank/sre_s5_docs/Disruptive_OS_Activity_Prerequisites/Disruptive_OS_Activity_Prerequisites/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://pages.github.ibm.com/sashtiachuthank/sre_s5_docs/Merge_AAP_GIT/Merge_AAP_GIT/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://pages.github.ibm.com/sashtiachuthank/sre_s5_docs/SPLUNK_PP_Validation/SPLUNK_Pending_Patches_Validation/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <loc>https://pages.github.ibm.com/sashtiachuthank/sre_s5_docs/Splunk_Patching_Process/Splunk_Patching_Process/</loc>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

@@ -10,7 +10,7 @@
         <meta name="author" content="Sashti Achuthan K">
       
       
-        <link rel="canonical" href="https://pages.github.ibm.com/sashtiachuthank/sre_s5_docs/SPLUNK_PP_Validation/SPLUNK_Pending_Patches_Validation/">
+        <link rel="canonical" href="https://pages.github.ibm.com/sashtiachuthank/sre_s5_docs/Splunk_Patching_Process/Splunk_Patching_Process/">
       
       
         <link rel="prev" href="../../Merge_AAP_GIT/Merge_AAP_GIT/">
@@ -22,7 +22,7 @@
     
     
       
-        <title>SPLUNK Pending Patches Validation - SRE S5 Documents</title>
+        <title>Splunk Patching Process - SRE S5 Documents</title>
       
     
     
@@ -55,16 +55,7 @@
     
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  </head>
   
   
     
@@ -112,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SPLUNK Pending Patches Validation
+              Splunk Patching Process
             
           </span>
         </div>
@@ -441,7 +432,7 @@
             
   
   <span class="md-ellipsis">
-    SPLUNK PP Validation
+    Splunk Patching Process
   </span>
   
 
@@ -451,7 +442,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            SPLUNK PP Validation
+            Splunk Patching Process
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -473,7 +464,7 @@
         
   
   <span class="md-ellipsis">
-    SPLUNK Pending Patches Validation
+    Splunk Patching Process
   </span>
   
 
@@ -522,18 +513,18 @@
                   
 
 
-  <h1>SPLUNK Pending Patches Validation</h1>
+<h1 align="center">Splunk Patching Process</h1>
 
 <p>This article helps you for validating the pending patches extracted from SPLUNK portal.</p>
 <p><strong>Step: 1</strong></p>
 <p>Extract the pending patches CSV file from SPLUNK portal.</p>
-<p><a class="glightbox" href="../Picture1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../Picture1.png" /></a></p>
+<p><img alt="pic3" src="../Picture1.png" /></p>
 <p><strong>Step: 2</strong></p>
 <p>In the exported excel, based on IMAP, get the Hostname and its PATCH_ADVISORY_ID</p>
-<p><a class="glightbox" href="../Picture2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../Picture2.png" /></a></p>
+<p><img alt="pic3" src="../Picture2.png" /></p>
 <p><strong>Step: 3</strong></p>
 <p>Remove the duplicate PATCH_ADVISORY_IDs </p>
-<p><a class="glightbox" href="../Picture3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../Picture3.png" /></a></p>
+<p><img alt="pic3" src="../Picture3.png" /></p>
 <p><strong>Step: 4</strong></p>
 <p>Edit and replace the PATCH_ADVISORY_IDs in below command. 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>yum<span class="w"> </span>update<span class="w"> </span>--advisory<span class="o">=</span>RHSA-2023:0110<span class="w"> </span>--assumeno<span class="p">;</span>
@@ -541,7 +532,7 @@
 </code></pre></div></p>
 <p><strong>Step: 5</strong></p>
 <p>In AAP, run an ad-hoc job as shown below.</p>
-<p><a class="glightbox" href="../Picture4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../Picture4.png" /></a></p>
+<p><img alt="pic3" src="../Picture4.png" /></p>
 <p><strong>Step: 6</strong></p>
 <p>Validate the job output and list out the applicable and not applicable advisories.</p>
 <div class="highlight"><pre><span></span><code>    a. If the package name is listed APPLICABLE
@@ -571,6 +562,9 @@
 
 
 
+
+  
+  
 
 
 
@@ -623,5 +617,5 @@
       <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  </body>
 </html>
