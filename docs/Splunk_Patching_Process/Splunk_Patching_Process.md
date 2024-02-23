@@ -51,6 +51,7 @@ Validate the job output and list out the applicable and not applicable advisorie
 
 <a href="ad_hoc_command_701863.txt" download>ad_hoc_command_701863.txt</a>
 
+
 As per the above job output the 2 advisories are not appliable in the respective hosts.
 
 **Step: 8**
