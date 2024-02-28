@@ -33,7 +33,7 @@ To get started with this repository:
 
 1. Make sure you have mkdocs installed on your machine.
 
-2. Clone this repository to your local machine: `git clone https://github.ibm.com/AO-Distributed/sre_guide. It will create a folder called `sre_guide` with all the files need.
+2. Clone this repository to your local machine: `git clone https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP. It will create a folder called `SRE_INDIA_S5_SOP` with all the files need.
 
 3. You you write your content in files inside the `content` directory. Take a look at the final site [https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP](https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP.git) and compare with the ones in this directory to get a 'jist' of how if should be structured.
 
