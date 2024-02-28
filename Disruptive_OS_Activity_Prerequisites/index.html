@@ -407,84 +407,83 @@
 <p>Below listed are the Pre &amp; Post check steps to be followed during DISRUPTIVE activities.</p>
 <div class="admonition warning inline">
 <p class="admonition-title">Note</p>
-<p>Before starting any activity save the log of your current putty session login 
+<p>Before starting any activity save the log of your current putty session login
 and start the activity.</p>
 </div>
 <figure>
   <img alt="pic3" src="../pictures/Disruptive_OS_Activity_Prerequisites1.png" width="300" />
 </figure>
-<ol>
-<li>Check the uptime, system date time, redhat release version, uname details (This must be documented and shared where-ever required)
+<p><strong>1</strong>.Check the uptime, system date time, redhat release version, uname details (This must be documented and shared where-ever required)</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># uptime;date;cat /etc/redhat-release;uname -a</span>
-</code></pre></div></li>
-<li>Check all available network interfaces.
+</code></pre></div>
+<p><strong>2</strong>.Check all available network interfaces.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># ifconfig -a</span>
-</code></pre></div></li>
-<li>Check the network statistics.
+</code></pre></div>
+<p><strong>3</strong>.Check the network statistics.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># netstat -tulpn</span>
-</code></pre></div></li>
-<li>Check all the existing services details (which includes enabled/disabled &amp; active/inactive services)
+</code></pre></div>
+<p><strong>4</strong>.Check all the existing services details (which includes enabled/disabled &amp; active/inactive services)</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># systemctl list-unit-files</span>
-</code></pre></div></li>
-<li>Check the recursive disk utilization status. (If required add new disk to server and extend the LV)
+</code></pre></div>
+<p><strong>5</strong>.Check the recursive disk utilization status. (If required add new disk to server and extend the LV)</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># cat /etc/fstab</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># df -hTP</span>
-</code></pre></div></li>
-<li>Check the subscription manager status.
+</code></pre></div>
+<p><strong>6</strong>.Check the subscription manager status.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># subscription-manager status</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># subscription-manager list --installed</span>
-</code></pre></div></li>
-<li>Check the enabled and available repositories. 
+</code></pre></div>
+<p><strong>7</strong>.Check the enabled and available repositories.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># yum repolist all </span>
-</code></pre></div></li>
-<li>Check and list out all the installed packages along with versions.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># rpm -qa | nl</span>
-</code></pre></div></li>
-<li>Check and ensure the processes of applications and its related middlewares are in stopped state.</li>
-</ol>
-<p>a. Check the cronjobs for all active cron jobs for the current user:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># cronjob -l            ------&gt; active cron jobs for the current user</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># crontab -u user -l    ------&gt; show cron jobs for a specific user</span>
 </code></pre></div>
-b. The process of listing all the cron jobs for all users, we can use the below bash script.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>!/bin/bash
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">for</span><span class="w"> </span>user<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>cut<span class="w"> </span>-f1<span class="w"> </span>-d:<span class="w"> </span>/etc/passwd<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Crontab for </span><span class="nv">$user</span><span class="s2">:&quot;</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span>sudo<span class="w"> </span>crontab<span class="w"> </span>-u<span class="w"> </span><span class="nv">$user</span><span class="w"> </span>-l
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">done</span>
+<p><strong>8</strong>.Check and list out all the installed packages along with versions.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># rpm -qa</span>
 </code></pre></div>
-10. Backup the fstab file, then comment out the mounts other than system related ones.</p>
-<p>Take backup of 
+<p><strong>9</strong>.Check the ongoing processes details</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># ps -ef</span>
+</code></pre></div>
+<p><strong>10</strong>.Check and ensure the processes of applications and its related middlewares are in stopped state.</p>
+<ul>
+<li>Check the cronjobs for all active cron jobs for the current user:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># cronjob -l            ------&gt; active cron jobs for the current user</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1"># crontab -u user -l    ------&gt; show cron jobs for a specific user</span>
+</code></pre></div>
+<ul>
+<li>The process of listing all the cron jobs for all users, we can use the below bash script.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>!/bin/bash
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">for</span><span class="w"> </span>user<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>cut<span class="w"> </span>-f1<span class="w"> </span>-d:<span class="w"> </span>/etc/passwd<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Crontab for </span><span class="nv">$user</span><span class="s2">:&quot;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span>sudo<span class="w"> </span>crontab<span class="w"> </span>-u<span class="w"> </span><span class="nv">$user</span><span class="w"> </span>-l
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="k">done</span>
+</code></pre></div>
+<p><strong>11</strong>.Backup the fstab file, then comment out the mounts other than system related ones.</p>
+<p>Take backup of
                 sshd configuration file.
                 pam.d authentication &amp; configuration files.
                 DUO configuration files.</p>
-<ol>
-<li>
-<p>Keep ready with the root passwd. For safer side reset the root passwd of own.</p>
-</li>
-<li>
-<p>Before the snapshot VM expires, </p>
-<p>a.  The application team should validate the servers and get back to us for concerns.
-b.  We must resolve the raised issues.</p>
-<blockquote>
-<p>Else revert the snapshot from VM.</p>
-</blockquote>
-</li>
-</ol>
+<p><strong>12</strong>.Keep ready with the root passwd. For safer side reset the root passwd of own.</p>
+<p><strong>13</strong>.Before the snapshot VM expires,
+    a.The application team should validate the servers and get back to us for concerns.
+    b.We must resolve the raised issues.
+    &gt; Else revert the snapshot from VM.</p>
 <div class="admonition warning">
 <p class="admonition-title">Note</p>
-<p>Before making any changes in system files take a backup of that file in same location. </p>
+<p>Before making any changes in system files take a backup of that file in same location.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Useful Links:</p>
-<p>For Leapp package - <a href="https://access.redhat.com/articles/3664871">https://access.redhat.com/articles/3664871</a> </p>
-<p>DUO Configuration - <a href="https://w3.ibm.com/w3publisher/ibm2fa/server-admins/unix">https://w3.ibm.com/w3publisher/ibm2fa/server-admins/unix</a> </p>
-<p>QRadar Configuration - <a href="https://w3.ibm.com/w3publisher/ciso-security-log-standard/server-os/linux/rhel-centos-8-0-2">https://w3.ibm.com/w3publisher/ciso-security-log-standard/server-os/linux/rhel-centos-8-0-2</a></p>
-<p>QRadar Validation - <a href="https://mss.secintel.ibm.com/qradar_tools/">https://mss.secintel.ibm.com/qradar_tools/</a></p>
-<p>Falcon Installation - <a href="https://pages.github.ibm.com/edr-ciso/documentation/linux_installation.html">https://pages.github.ibm.com/edr-ciso/documentation/linux_installation.html</a> </p>
-<p>For Falcon package - <a href="https://github.ibm.com/cisoedr/crowdstrike-sensor/tree/master/WW/Linux/N">https://github.ibm.com/cisoedr/crowdstrike-sensor/tree/master/WW/Linux/N</a> </p>
-<p>Falcon Validation - <a href="https://cs-host-verification-prod.wdc1a.cirrus.ibm.com/">https://cs-host-verification-prod.wdc1a.cirrus.ibm.com/</a></p>
+<ul>
+<li>For Leapp package - <a href="https://access.redhat.com/articles/3664871">https://access.redhat.com/articles/3664871</a></li>
+<li>DUO Configuration - <a href="https://w3.ibm.com/w3publisher/ibm2fa/server-admins/unix">https://w3.ibm.com/w3publisher/ibm2fa/server-admins/unix</a></li>
+<li>QRadar Configuration - <a href="https://w3.ibm.com/w3publisher/ciso-security-log-standard/server-os/linux/rhel-centos-8-0-2">https://w3.ibm.com/w3publisher/ciso-security-log-standard/server-os/linux/rhel-centos-8-0-2</a></li>
+<li>QRadar Validation - <a href="https://mss.secintel.ibm.com/qradar_tools/">https://mss.secintel.ibm.com/qradar_tools/</a></li>
+<li>Falcon Installation - <a href="https://pages.github.ibm.com/edr-ciso/documentation/linux_installation.html">https://pages.github.ibm.com/edr-ciso/documentation/linux_installation.html</a></li>
+<li>For Falcon package - <a href="https://github.ibm.com/cisoedr/crowdstrike-sensor/tree/master/WW/Linux/N">https://github.ibm.com/cisoedr/crowdstrike-sensor/tree/master/WW/Linux/N</a></li>
+<li>Falcon Validation - <a href="https://cs-host-verification-prod.wdc1a.cirrus.ibm.com/">https://cs-host-verification-prod.wdc1a.cirrus.ibm.com/</a></li>
+</ul>
 </div>
 
 
