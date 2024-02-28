@@ -105,9 +105,10 @@ Take backup of
 **12**.Keep ready with the root passwd. For safer side reset the root passwd of own.
 
 **13**.Before the snapshot VM expires,
-    a.The application team should validate the servers and get back to us for concerns.
-    b.We must resolve the raised issues.
-    > Else revert the snapshot from VM.
+    - The application team should validate the servers and get back to us for concerns.
+    - We must resolve the raised issues.
+
+> Else revert the snapshot from VM.
 
 !!! warning "Note"
     Before making any changes in system files take a backup of that file in same location.
