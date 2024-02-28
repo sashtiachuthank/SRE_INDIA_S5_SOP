@@ -16,7 +16,7 @@ Below listed are the Pre & Post check steps to be followed during DISRUPTIVE act
     Before starting any activity save the log of your current putty session login 
     and start the activity.
 <figure markdown="span">
-  ![pic3](Picture2.png){ width="300" }
+  ![pic3](./pictures/Disruptive_OS_Activity_Prerequisites1.png){ width="300" }
 </figure> 
 
 1. Check the uptime, system date time, redhat release version, uname details (This must be documented and shared where-ever required)

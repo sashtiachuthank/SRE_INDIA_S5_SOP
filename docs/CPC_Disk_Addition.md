@@ -19,31 +19,31 @@ Here are the steps for adding a new virtual disk on a Linux virtual machine.
 
 Search for the respective host in the CPC portal based on the IMAP or project ID and click it to open further. 
 
-![pic3](Picture1.png)
+![pic3](./pictures/Picture_CPC_Disk_Addition1.png)
 
 **Step: :two:**
 
 Once we got the host screen, check the list of existing disk volumes. Use the ***"Edit Volumes"*** option for adding new volume to the host.
 
-![pic3](Picture2.png)
+![pic3](./pictures/Picture_CPC_Disk_Addition2.png)
 
 **Step: :three:**
 
 The ***"Edit Volumes"*** screen will be like this. In that click the ***"Add Disk +"*** option.
 
-![pic3](Picture3.png)
+![pic3](./pictures/Picture_CPC_Disk_Addition3.png)
 
 **Step: :four:**
 
 Select the required disk space and use the ***"Add Volumes"*** option for volume addition.
 
-![pic3](Picture4.png)
+![pic3](./pictures/Picture_CPC_Disk_Addition4.png)
 
 **Step: :five:**
 
 Post that you will be prompted with the CPC request ID.
 
-![pic3](Picture5.png)
+![pic3](./pictures/Picture_CPC_Disk_Addition5.png)
 
 **Step: :six:**
 
@@ -51,7 +51,7 @@ In sometime, you will be receiving a task successfull completion mail. Once you 
   
   > If you didn't receive such mail then please reach to the #cirrus-platform-support slack channel further assistance.
 
-![pic3](Picture6.png)
+![pic3](./pictures/Picture_CPC_Disk_Addition6.png)
 
 **Step: :seven:**
 
@@ -62,7 +62,7 @@ Please execute the below command. If you are able to see the newly added disk th
 ```bash
 # lsblk
 ```
-![pic3](Picture7.png)
+![pic3](./pictures/Picture_CPC_Disk_Addition7.png)
 
 ###Use below commands for expanding the added disk space to the volume group and then the required size to the logical volume.
 ```bash
@@ -70,7 +70,7 @@ Please execute the below command. If you are able to see the newly added disk th
 # vgextend datavg /dev/sdd
 # lvextend -L +20G /dev/mapper/datavg-tempdb2 -r
 ```
-![pic3](Picture8.png)
+![pic3](./pictures/Picture_CPC_Disk_Addition8.png)
 
 **Before expansion:**
 ```bash

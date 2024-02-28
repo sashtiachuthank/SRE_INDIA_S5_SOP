@@ -10,19 +10,19 @@ This article helps you for validating the pending patches extracted from SPLUNK 
 
 Extract the pending patches CSV file from SPLUNK portal.
 
-![pic3](Picture1.png)
+![pic3](./pictures/Picture_Splunk_Patching_Process1.png)
 
 **Step: 2**
 
 In the exported excel, based on IMAP, get the Hostname and its PATCH_ADVISORY_ID
 
-![pic3](Picture2.png)
+![pic3](./pictures/Picture_Splunk_Patching_Process2.png)
 
 **Step: 3**
 
 Remove the duplicate PATCH_ADVISORY_IDs 
 
-![pic3](Picture3.png)
+![pic3](./pictures/Picture_Splunk_Patching_Process3.png)
 
 **Step: 4**
 
@@ -38,7 +38,7 @@ yum update --advisory=RHSA-2023:5997 --assumeno
 
 In AAP, run an ad-hoc job as shown below.
 
-![pic3](Picture4.png)
+![pic3](./pictures/Picture_Splunk_Patching_Process4.png)
 
 **Step: 6**
 
@@ -49,8 +49,7 @@ Validate the job output and list out the applicable and not applicable advisorie
 
 **Step: 7**
 
-<a href="ad_hoc_command_701863.txt" download>ad_hoc_command_701863.txt</a>
-
+[ad_hoc_command_701863.txt](./pictures/ad_hoc_command_701863.txt){:download="ad_hoc_command_701863.txt"}
 
 As per the above job output the 2 advisories are not appliable in the respective hosts.
 
