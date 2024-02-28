@@ -28,13 +28,13 @@ Once we got the host screen, check the list of existing disk volumes. Use the ==
 
 ***Step: 3***
 
-The ***"Edit Volumes"*** screen will be like this. In that click the =="Add Disk +"== option.
+The ==Edit Volumes== screen will be like this. In that click the ==Add Disk +== option.
 
 ![pic3](./pictures/Picture_CPC_Disk_Addition3.png)
 
 ***Step: 4***
 
-Select the required disk space and use the =="Add Volumes"== option for volume addition.
+Select the required disk space and use the ==Add Volumes== option for volume addition.
 
 ![pic3](./pictures/Picture_CPC_Disk_Addition4.png)
 
