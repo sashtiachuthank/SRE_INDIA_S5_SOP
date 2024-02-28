@@ -20,7 +20,7 @@ In the exported excel, based on IMAP, get the Hostname and its PATCH_ADVISORY_ID
 
 ***Step: 3***
 
-Remove the duplicate PATCH_ADVISORY_IDs 
+Remove the duplicate PATCH_ADVISORY_IDs
 
 ![pic3](./pictures/Picture_Splunk_Patching_Process3.png)
 
