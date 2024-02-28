@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://github.ibm.com/sashtiachuthank/SRE_S5_DOCS.git/</loc>
-         <lastmod>2024-02-23</lastmod>
+         <loc>https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.ibm.com/sashtiachuthank/SRE_S5_DOCS.git/CPC_Disk_Addition/CPC_Disk_Addition/</loc>
-         <lastmod>2024-02-23</lastmod>
+         <loc>https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/CPC_Disk_Addition/CPC_Disk_Addition/</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.ibm.com/sashtiachuthank/SRE_S5_DOCS.git/Disruptive_OS_Activity_Prerequisites/Disruptive_OS_Activity_Prerequisites/</loc>
-         <lastmod>2024-02-23</lastmod>
+         <loc>https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/Disruptive_OS_Activity_Prerequisites/Disruptive_OS_Activity_Prerequisites/</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.ibm.com/sashtiachuthank/SRE_S5_DOCS.git/Merge_AAP_GIT/Merge_AAP_GIT/</loc>
-         <lastmod>2024-02-23</lastmod>
+         <loc>https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/Merge_AAP_GIT/Merge_AAP_GIT/</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.ibm.com/sashtiachuthank/SRE_S5_DOCS.git/Splunk_Patching_Process/Splunk_Patching_Process/</loc>
-         <lastmod>2024-02-23</lastmod>
+         <loc>https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/Splunk_Patching_Process/Splunk_Patching_Process/</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
