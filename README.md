@@ -1,13 +1,5 @@
-## What is MKDOCS?
 
-MkDocs is a fast, simple and downright gorgeous static site generator that's geared towards building project documentation. Documentation source files are written in Markdown, and configured with a single YAML configuration file
-
-[Getting Started with MkDocs](https://www.mkdocs.org/getting-started/#installation)
-
-Markdown syntax is easy to learn and it has just a few marks. A summary can be found in [Markdown Guide](https://www.markdownguide.org/basic-syntax/) or [Daring Fireball](https://daringfireball.net/projects/markdown/syntax).
-
-
-## Usage
+## Configuration Guide
 
 To get started with this repository:
 
