@@ -35,7 +35,7 @@ To get started with this repository:
 
 2. Clone this repository to your local machine: `git clone https://github.ibm.com/AO-Distributed/sre_guide`. It will create a folder called `sre_guide` with all the files need.
 
-3. You you write your content in files inside the `content` directory. Take a look at the final site [https://pages.github.ibm.com/AO-Distributed/sre_guide/](https://pages.github.ibm.com/AO-Distributed/sre_guide/) and compare with the ones in this directory to get a 'jist' of how if should be structured.
+3. You you write your content in files inside the `content` directory. Take a look at the final site [https://pages.github.ibm.com/AO-Distributed/sre_guide/](https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP.git) and compare with the ones in this directory to get a 'jist' of how if should be structured.
 
 4. After you finish you can check the final result using the following command on the terminal: `mkdocs serve`. It will provide you a link where you can click and see the final website in your browser (it is hosted locally)
 
