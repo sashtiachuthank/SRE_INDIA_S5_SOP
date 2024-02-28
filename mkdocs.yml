@@ -21,7 +21,18 @@ theme:
   palette:
     primary: indigo
     accent: indigo
-#
+  features:
+    - content.action.edit
+    - content.action.feedback
+    - navigation.indexes      # Attach documents to sections, useful for providing overview pages
+    - navigation.instant      # Single page instant refresh
+    - navigation.top          # Back-to-top button. Rendered centered and just below the header
+    - navigation.tracking     # URL updated with active anchor
+    - navigation.path
+    - search.share
+    - search.suggest
+    - tags
+# 
 
 markdown_extensions:
   - abbr
