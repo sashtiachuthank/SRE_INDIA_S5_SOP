@@ -7,7 +7,7 @@ site_author: Sashti Achuthan K
 
 # Repository Information
 repo_name: 'sashtiachuthank/SRE_INDIA_S5_SOP'
-repo_url: 'https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP.git'
+repo_url: 'https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP'
 docs_dir: 'docs'
 site_dir: 'site'
 remote_branch: 'gh-pages'
@@ -19,18 +19,14 @@ theme:
     text: IBM Plex Sans
     code: IBM Plex Mono
   palette:
-    primary: indigo
-    accent: indigo
+    primary: blue
+    accent: red
   features:
-    - content.action.edit
-    - content.action.feedback
     - navigation.indexes      # Attach documents to sections, useful for providing overview pages
     - navigation.instant      # Single page instant refresh
     - navigation.top          # Back-to-top button. Rendered centered and just below the header
     - navigation.tracking     # URL updated with active anchor
     - navigation.path
-    - search.share
-    - search.suggest
     - tags
 # 
 
@@ -42,29 +38,36 @@ markdown_extensions:
   - footnotes
   - md_in_html
   - toc:
-      permalink: false
+      permalink: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
       smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+#      emoji_index: !!python/name:material.extensions.emoji.twemoji 
+#      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.magiclink:
       repo_url_shorthand: true
-      user: squidfunk
-      repo: mkdocs-material
+#      user: squidfunk
+#      repo: mkdocs-material
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
+#          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
+#
 
 plugins:
   - glightbox:
