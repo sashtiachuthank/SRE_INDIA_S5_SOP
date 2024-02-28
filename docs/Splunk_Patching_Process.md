@@ -55,15 +55,11 @@ As per the below job output the 2 advisories are not appliable in the respective
 
 [ad_hoc_command_701863.txt](./pictures/ad_hoc_command_701863.txt){:download="ad_hoc_command_701863.txt"}
 
-***Step: 8***
-
-To mark them as not applicable in SPLUNK portal, in AAP use the below template
+To mark them as not applicable in SPLUNK portal, login to AAP and use the below template
 
 ***“AO_DS_JT_Proactive_Patching_NotApplicable”***
 
-***Step: 9***
-
-For above template, use as per the below format for marking the not applicable advisories.
+For above template execution, use as per the below format for marking the advisories as not applicable.
 
 ```bash
 g43xr00006755.az3.ash.cpc.ibm.com, RHSA-2023:5997, platform-python, Not_Applicable
@@ -74,4 +70,14 @@ g43xr00006757.az3.ash.cpc.ibm.com, RHSA-2023:5997, platform-python, Not_Applicab
 “ “ “ “
 “ “ “ “
 “ “ “ “
+```
+
+***Step: 8***
+
+For the ==applicable== packages installation/upgradation. Please raise ==CHANGE REQUEST== as per process and use the below command for manual patching.
+
+```bash
+yum update --advisory=RHSA-2023:0110;
+yum update --advisory=RHSA-2023:5997
+
 ```
