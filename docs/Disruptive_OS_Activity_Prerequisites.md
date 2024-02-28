@@ -66,10 +66,16 @@ Below listed are the Pre & Post check steps to be followed during DISRUPTIVE act
 **8**.Check and list out all the installed packages along with versions.
 
 ```bash
-# rpm -qa | nl
+# rpm -qa
 ```
 
-**9**.Check and ensure the processes of applications and its related middlewares are in stopped state.
+**9**.Check the ongoing processes details
+
+```bash
+# ps -ef
+```
+
+**10**.Check and ensure the processes of applications and its related middlewares are in stopped state.
 
 - Check the cronjobs for all active cron jobs for the current user:
 
@@ -89,16 +95,16 @@ for user in $(cut -f1 -d: /etc/passwd); do
 done
 ```
 
-**10**.Backup the fstab file, then comment out the mounts other than system related ones.
+**11**.Backup the fstab file, then comment out the mounts other than system related ones.
 
 Take backup of
                 sshd configuration file.
                 pam.d authentication & configuration files.
                 DUO configuration files.
 
-**11**.Keep ready with the root passwd. For safer side reset the root passwd of own.
+**12**.Keep ready with the root passwd. For safer side reset the root passwd of own.
 
-**12**.Before the snapshot VM expires,
+**13**.Before the snapshot VM expires,
     a.The application team should validate the servers and get back to us for concerns.
     b.We must resolve the raised issues.
     > Else revert the snapshot from VM.
