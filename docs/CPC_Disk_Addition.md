@@ -74,20 +74,18 @@ Use below commands for expanding the added disk space to the volume group and th
 
 ![pic3](./pictures/Picture_CPC_Disk_Addition8.png)
 
-**Before expansion:**
+=== "Before expansion"
+    ```bash
+    [root@g53xr00007521 ~]# df -hTP /tempdb2
+    Filesystem                Type  Size  Used Avail Use% Mounted on
+    /dev/mapper/datavg-tempdb2 xfs    30G   28G  1.6G  95% /tempdb2
+    [root@g53xr00007521 ~]#
+    ```
 
-```bash
-  [root@g53xr00007521 ~]# df -hTP /tempdb2
-  Filesystem                Type  Size  Used Avail Use% Mounted on
-  /dev/mapper/datavg-tempdb2 xfs    30G   28G  1.6G  95% /tempdb2
-  [root@g53xr00007521 ~]# 
-```
-
-**After expansion:**
-
-```bash
-[root@g53xr00007521 ~]# df -hTP /tempdb2
-Filesystem                Type  Size  Used Avail Use% Mounted on
-/dev/mapper/datavg-tempdb2 xfs    50G   29G   22G  57% /tempdb2
-[root@g53xr00007521 ~]#
-```
+=== "After expansion"
+    ```bash
+    [root@g53xr00007521 ~]# df -hTP /tempdb2
+    Filesystem                Type  Size  Used Avail Use% Mounted on
+    /dev/mapper/datavg-tempdb2 xfs    50G   29G   22G  57% /tempdb2
+    [root@g53xr00007521 ~]#
+    ```
