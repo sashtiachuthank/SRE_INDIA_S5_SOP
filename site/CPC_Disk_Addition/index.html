@@ -410,13 +410,13 @@
 <p>Search for the respective host in the CPC portal based on the IMAP or project ID and click it to open further.</p>
 <p><img alt="pic3" src="../pictures/Picture_CPC_Disk_Addition1.png" /></p>
 <p><strong><em>Step: 2</em></strong></p>
-<p>Once we got the host screen, check the list of existing disk volumes. Use the <strong><em>"Edit Volumes"</em></strong> option for adding new volume to the host.</p>
+<p>Once we got the host screen, check the list of existing disk volumes. Use the <mark>"Edit Volumes"</mark> option for adding new volume to the host.</p>
 <p><img alt="pic3" src="../pictures/Picture_CPC_Disk_Addition2.png" /></p>
 <p><strong><em>Step: 3</em></strong></p>
-<p>The <strong><em>"Edit Volumes"</em></strong> screen will be like this. In that click the <strong><em>"Add Disk +"</em></strong> option.</p>
+<p>The <mark>Edit Volumes</mark> screen will be like this. In that click the <mark>Add Disk +</mark> option.</p>
 <p><img alt="pic3" src="../pictures/Picture_CPC_Disk_Addition3.png" /></p>
 <p><strong><em>Step: 4</em></strong></p>
-<p>Select the required disk space and use the <strong><em>"Add Volumes"</em></strong> option for volume addition.</p>
+<p>Select the required disk space and use the <mark>Add Volumes</mark> option for volume addition.</p>
 <p><img alt="pic3" src="../pictures/Picture_CPC_Disk_Addition4.png" /></p>
 <p><strong><em>Step: 5</em></strong></p>
 <p>Post that you will be prompted with the CPC request ID.</p>
@@ -441,18 +441,24 @@
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># lvextend -L +20G /dev/mapper/datavg-tempdb2 -r</span>
 </code></pre></div>
 <p><img alt="pic3" src="../pictures/Picture_CPC_Disk_Addition8.png" /></p>
-<p><strong>Before expansion:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">  </span><span class="o">[</span>root@g53xr00007521<span class="w"> </span>~<span class="o">]</span><span class="c1"># df -hTP /tempdb2</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>Filesystem<span class="w">                </span>Type<span class="w">  </span>Size<span class="w">  </span>Used<span class="w"> </span>Avail<span class="w"> </span>Use%<span class="w"> </span>Mounted<span class="w"> </span>on
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>/dev/mapper/datavg-tempdb2<span class="w"> </span>xfs<span class="w">    </span>30G<span class="w">   </span>28G<span class="w">  </span><span class="m">1</span>.6G<span class="w">  </span><span class="m">95</span>%<span class="w"> </span>/tempdb2
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="o">[</span>root@g53xr00007521<span class="w"> </span>~<span class="o">]</span><span class="c1"># </span>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Before expansion</label><label for="__tabbed_1_2">After expansion</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">[</span>root@g53xr00007521<span class="w"> </span>~<span class="o">]</span><span class="c1"># df -hTP /tempdb2</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Filesystem<span class="w">                </span>Type<span class="w">  </span>Size<span class="w">  </span>Used<span class="w"> </span>Avail<span class="w"> </span>Use%<span class="w"> </span>Mounted<span class="w"> </span>on
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>/dev/mapper/datavg-tempdb2<span class="w"> </span>xfs<span class="w">    </span>30G<span class="w">   </span>28G<span class="w">  </span><span class="m">1</span>.6G<span class="w">  </span><span class="m">95</span>%<span class="w"> </span>/tempdb2
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="o">[</span>root@g53xr00007521<span class="w"> </span>~<span class="o">]</span><span class="c1">#</span>
 </code></pre></div>
-<p><strong>After expansion:</strong></p>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">[</span>root@g53xr00007521<span class="w"> </span>~<span class="o">]</span><span class="c1"># df -hTP /tempdb2</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Filesystem<span class="w">                </span>Type<span class="w">  </span>Size<span class="w">  </span>Used<span class="w"> </span>Avail<span class="w"> </span>Use%<span class="w"> </span>Mounted<span class="w"> </span>on
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>/dev/mapper/datavg-tempdb2<span class="w"> </span>xfs<span class="w">    </span>50G<span class="w">   </span>29G<span class="w">   </span>22G<span class="w">  </span><span class="m">57</span>%<span class="w"> </span>/tempdb2
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="o">[</span>root@g53xr00007521<span class="w"> </span>~<span class="o">]</span><span class="c1">#</span>
 </code></pre></div>
+</div>
+</div>
+</div>
 
 
 
