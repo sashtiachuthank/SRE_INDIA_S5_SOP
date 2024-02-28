@@ -1,11 +1,13 @@
-site_name: "SRE S5 Documents"
+site_name: "SRE_INDIA_S5_SOP"
+
 # Project Information
-site_url: 'https://github.ibm.com/sashtiachuthank/SRE_S5_DOCS.git' 
+site_url: 'https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP'
+site_description: RHEL based SOPs
 site_author: Sashti Achuthan K
 
 # Repository Information
-repo_name: 'sashtiachuthank/sre_s5_docs'
-repo_url: 'https://github.ibm.com/sashtiachuthank/sre_s5_docs'
+repo_name: 'sashtiachuthank/SRE_INDIA_S5_SOP'
+repo_url: 'https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP.git'
 docs_dir: 'docs'
 site_dir: 'site'
 remote_branch: 'gh-pages'
@@ -19,29 +21,9 @@ theme:
   palette:
     primary: indigo
     accent: indigo
-  features:
-#    - announce.dismiss        # Button to dismiss the current temporary announcement
-    - content.action.edit
-    - content.action.feedback
-#    - content.action.view
-#    - content.tabs.link
-    # - navigation.expand       # Expand left sidebar by default
-    - navigation.indexes      # Attach documents to sections, useful for providing overview pages
-    - navigation.instant      # Single page instant refresh
-#    - navigation.sections     # Top level tabs rendered in sidebar
-#    - navigation.tabs         # Navigation tabs across top. Comment this out to have navigation on the left
-#    - navigation.tabs.sticky  # Tab always displayed
-    - navigation.top          # Back-to-top button. Rendered centered and just below the header
-    - navigation.tracking     # URL updated with active anchor
-    - navigation.path
-    - search.share
-    - search.suggest
-    - tags
-#    - toc.integrate           # Integrate page TOC in left sidebar - wider page
+#
 
 markdown_extensions:
-#  - pymdownx.highlight
-#  - pymdownx.superfences
   - abbr
   - admonition
   - attr_list
@@ -49,20 +31,16 @@ markdown_extensions:
   - footnotes
   - md_in_html
   - toc:
-      permalink: true
+      permalink: false
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
       smart_enable: all
-#  - pymdownx.caret
-#    - pymdownx.details
   - pymdownx.emoji:
       emoji_generator: !!python/name:materialx.emoji.to_svg
       emoji_index: !!python/name:materialx.emoji.twemoji
   - pymdownx.highlight:
       anchor_linenums: true
-  #    line_spans: __span
-  #    pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.magiclink:
@@ -87,8 +65,4 @@ plugins:
       draggable: true
       skip_classes:
         - skip-lightbox
-#  - pymdownx.tilde
-#extra_css:
-#  - "stylesheets/extra_css.css"
-#extra_javascript:
-#  - javascripts/extra.js
+#
