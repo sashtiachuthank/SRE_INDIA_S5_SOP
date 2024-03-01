@@ -4,7 +4,13 @@ glightbox: false
 
 <h1 align="center">Splunk Patching Process</h1>
 
+## Goal
+
 This article helps you for validating the pending patches extracted from SPLUNK portal.
+
+## Procedure
+
+Please follow the below steps for patches validation and implementation.
 
 ***Step: 1***
 
