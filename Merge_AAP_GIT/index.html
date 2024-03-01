@@ -408,38 +408,68 @@
   
 
 
-<h1 align="center">To Merge AAP and GIT accounts</h1>
+<h1 align="center">To Merge AAP and GITHUB accounts</h1>
 
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>This article helps to Merge your AAP and GIT accounts so that you can execute the templates in applicable hosts.</p>
+<p>This article helps to Merge your AAP and GITHUB accounts so that you can execute the templates in applicable hosts.</p>
 <h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
-<p>Please follow the below steps for linking the AAP and GIT accounts.</p>
+<p>Please follow the below steps for linking the AAP and GITHUB accounts.</p>
 <p><strong><em>Step: 1</em></strong></p>
-<p>Login to your GIT account and under your profile name select the new repository creation icon.</p>
-<p><img alt="pic3" class="skip-lightbox" src="../pictures/Picture_Merge_AAP_GIT1.png" /></p>
+<p>Login to your GITHUB account and under your profile name select the new repository creation icon.</p>
+<figure>
+    <img alt="pic3" class="skip-lightbox" src="../pictures/Picture_Merge_AAP_GIT1.png" width="300" />
+</figure>
 <p><strong><em>Step: 2</em></strong></p>
-<p>You will be taken to this page once after you clicked the "New" repository icon.</p>
-<p>Enter a appropriate name for the new repository. Then choose the the preferred account type as either public or private.</p>
-<p>Also mark a tick at the {<mark><strong><em>"Add a README file"</em></strong></mark>}. Then click the {<mark><strong><em>"create repository"</em></strong></mark>} option.</p>
+<p>Enter a appropriate name for the new repository. Then choose the the preferred account type as either public or private. The new repository will be created once you clicked the <mark>Create repository</mark>.</p>
+<blockquote>
+<ul>
+<li><strong>Public</strong> account means it can be accessed by other accounts.</li>
+<li><strong>Private</strong> account means it will be accessed only by the creator and added contributors.</li>
+</ul>
+</blockquote>
 <p><img alt="pic3" class="skip-lightbox" src="../pictures/Picture_Merge_AAP_GIT2.png" /></p>
 <p><strong><em>Step: 3</em></strong></p>
-<p><img alt="pic3" class="skip-lightbox" src="../pictures/Picture_Merge_AAP_GIT3.png" /></p>
+<p>Inside the repository as <mark>highlighted</mark> in the below image, select the <mark>create a new file</mark> option.</p>
+<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT3.png" /></a></p>
 <p><strong><em>Step: 4</em></strong></p>
-<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!pic3" src="../pictures/Picture_Merge_AAP_GIT4.png" /></a></p>
+<p>Enter the script which you have prepared for execution. Save the script with <mark>'.yml'</mark> extension as shown in below image. Post feeded the script we need to commit the file.</p>
+<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT4.png" width="450" /></a>
+<a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img align="right" alt="pic3" src="../pictures/Picture_Merge_AAP_GIT5.png" width="200" /></a></p>
 <p><strong><em>Step: 5</em></strong></p>
-<p><img alt="pic3" class="skip-lightbox" src="../pictures/Picture_Merge_AAP_GIT5.png" /></p>
+<p>After commiting the script, we need to create a personal access token. For creating the token please follow the path as shown in below screenshots.</p>
+<p>Profile <code>-&gt;</code> Settings <code>-&gt;</code> Developer Settings <code>-&gt;</code> Personal Access Tokens <code>-&gt;</code> <mark>Generate new token</mark>.</p>
+<p><img alt="pic3" class="skip-lightbox" src="../pictures/Picture_Merge_AAP_GIT6.png" />
+<img align="right" alt="pic3" class="skip-lightbox" src="../pictures/Picture_Merge_AAP_GIT7.png" />
+<a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT8.png" /></a></p>
 <p><strong><em>Step: 6</em></strong></p>
-<p><img alt="pic3" class="skip-lightbox" src="../pictures/Picture_Merge_AAP_GIT6.png" /></p>
-<p><strong><em>Step: 7</em></strong></p>
-<p><img alt="pic3" class="skip-lightbox" src="../pictures/Picture_Merge_AAP_GIT7.png" /></p>
-<p><strong><em>Step: 8</em></strong></p>
-<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT8.png" /></a></p>
-<p><strong><em>Step: 9</em></strong></p>
+<p>Give a note name to this token and enable the "repo" &amp; "notifications" then click <mark>Generate token</mark>.</p>
 <p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT9.png" /></a></p>
-<p><strong><em>Step: 10</em></strong></p>
+<p><strong><em>Step: 7</em></strong></p>
+<p>Now, we need to create a new credential in AAP. So login in to your AAP account. Select &amp; fill the page as shown in below screenshot.</p>
+<div class="highlight"><pre><span></span><code>&gt; Attach local SSH private key which is generated in your laptop.
+</code></pre></div>
 <p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT10.png" /></a></p>
-<p><strong><em>Step: 11</em></strong></p>
+<p><strong><em>Step: 8</em></strong></p>
+<p>The next step will be project creation in AAP. For that we need the SSH code of the github account. So copy the SSH code as shown in below screenshot.</p>
 <p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT11.png" /></a></p>
+<div class="admonition tip">
+<p class="admonition-title">To generate SSH key</p>
+<p>For generating the SSH key, Open the command prompt in your laptop and execute the below command by replacing the email ID with your's.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>C:<span class="se">\U</span>sers<span class="se">\0</span>04GIN744&gt;ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;sashtiachuthank@ibm.com&quot;</span>
+</code></pre></div>
+<figure markdown="span">
+<a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT12.png" width="400" /></a>
+</figure></p>
+</div>
+<p><strong><em>Step: 9</em></strong></p>
+<p>In AAP, add a new project by updating the required fields as shown in below screenshot.</p>
+<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT13.png" /></a></p>
+<p><strong><em>Step: 10</em></strong></p>
+<p>Once you have created the project ensure it is in <mark><strong>Successfull</strong></mark> state.</p>
+<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT14.png" /></a></p>
+<p><strong><em>Step: 10</em></strong></p>
+<p>Now you should be able to access the script file under <mark>Templates</mark> by searching it with the saved script name.</p>
+<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT15.png" /></a></p>
 
 
 
