@@ -62,12 +62,6 @@ Now, we need to create a new credential in AAP. So login in to your AAP account.
 
 ![pic3](./pictures/Picture_Merge_AAP_GIT10.png)
 
-***Step: 8***
-
-The next step will be project creation in AAP. For that we need the SSH code of the github account. So copy the SSH code as shown in below screenshot.
-
-![pic3](./pictures/Picture_Merge_AAP_GIT11.png)
-
 !!! tip "To generate SSH key"
 
     For generating the SSH key, Open the command prompt in your laptop and execute the below command by replacing the email ID with your's.
@@ -77,6 +71,12 @@ The next step will be project creation in AAP. For that we need the SSH code of 
     <figure markdown="span">
     ![pic3](./pictures/Picture_Merge_AAP_GIT12.png){ width=400 }
     </figure>
+
+***Step: 8***
+
+The next step will be project creation in AAP. For that we need the SSH code of the github account. So copy the SSH code as shown in below screenshot.
+
+![pic3](./pictures/Picture_Merge_AAP_GIT11.png)
 
 ***Step: 9***
 
@@ -90,8 +90,18 @@ Once you have created the project ensure it is in ==**Successfull**== state.
 
 ![pic3](./pictures/Picture_Merge_AAP_GIT14.png)
 
-***Step: 10***
+***Step: 12***
+
+Then please go to the ==Job Template== option and create a new template by looping the **YML** file created in github as shown in below screenshots.
+
+![pic15](./pictures/Picture_Merge_AAP_GIT15.png)
+
+![pic15](./pictures/Picture_Merge_AAP_GIT16.png)
+
+![pic15](./pictures/Picture_Merge_AAP_GIT17.png)
+
+***Step: 13***
 
 Now you should be able to access the script file under ==Templates== by searching it with the saved script name.
 
-![pic3](./pictures/Picture_Merge_AAP_GIT15.png)
+![pic15](./pictures/Picture_Merge_AAP_GIT18.png)
