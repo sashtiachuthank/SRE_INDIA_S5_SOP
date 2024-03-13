@@ -5,10 +5,10 @@ To get started with this repository:
 
 | Action | URL | comments |
 | --------------- | --------------- | --------------- |
-| install VScode | https://code.visualstudio.com/download| For all OS |
-| install Python 3.x | https://www.python.org/downloads/ | For all OS |
-| instal github | sudo apt-get install git-all (Ubuntu) | For linux only| 
-| Install GIT | https://git-scm.com/downloads | For all OS |
+| install VScode | <https://code.visualstudio.com/download>| For all OS |
+| install Python 3.x | <https://www.python.org/downloads/> | For all OS |
+| instal github | sudo apt-get install git-all (Ubuntu) | For linux only|
+| Install GIT | <https://git-scm.com/downloads> | For all OS |
 | Install MKDOCS | pip3 install mkdocs-material | Use the command promt to execute this command |
 | install the plugin| pip3 install mkdocs-material-extensions | Use the command promt to execute this command |
 | install the plugin| pip3 install mkdocs-exclude | Use the command promt to execute this command |
@@ -34,25 +34,26 @@ To get started with this repository:
 5. Create the final files with the command: `mkdocs build`
 
 6. Add and commit your files using git:
-```
+
+```bash
 git add .
 git commit -m 'you can add a message here, like added pages to faq, for example'
 git push origin main
 ```
-7. Push your files to the main repository: `mkdocs gh-deploy`
 
-8. The site should be updated by now.
+7.Push your files to the main repository: `mkdocs gh-deploy`
+
+8.The site should be updated by now.
 
 ---
 
-VSCODE Basics: https://code.visualstudio.com/docs/introvideos/basics
+VSCODE Basics: <https://code.visualstudio.com/docs/introvideos/basics>
 
-MKDOCS guide: https://www.mkdocs.org/getting-started/#installation
+MKDOCS guide: <https://www.mkdocs.org/getting-started/#installation>
 
-Initial Mkdocs course: https://www.youtube.com/watch?v=Q-YA_dA8C20
-
+Initial Mkdocs course: <https://www.youtube.com/watch?v=Q-YA_dA8C20>
 
 ---
 VS Code Tips
 
-Change the VS Code Default Language: https://code.visualstudio.com/docs/getstarted/locales
+Change the VS Code Default Language: <https://code.visualstudio.com/docs/getstarted/locales>
