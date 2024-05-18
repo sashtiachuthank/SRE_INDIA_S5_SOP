@@ -12,7 +12,7 @@
         <meta name="author" content="Sashti Achuthan K">
       
       
-        <link rel="canonical" href="https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/DB/">
+        <link rel="canonical" href="https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/DB2_Fixpack_Install/">
       
       
         <link rel="prev" href="../CPC_Disk_Addition/">
@@ -26,7 +26,7 @@
     
     
       
-        <title>DB - SRE_INDIA_S5_SOP</title>
+        <title>DB2 Fixpack Install - SRE_INDIA_S5_SOP</title>
       
     
     
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DB
+              DB2 Fixpack Install
             
           </span>
         </div>
@@ -252,7 +252,7 @@
           
   
   <span class="md-ellipsis">
-    DB
+    DB2 Fixpack Install
   </span>
   
 
@@ -263,7 +263,7 @@
         
   
   <span class="md-ellipsis">
-    DB
+    DB2 Fixpack Install
   </span>
   
 
@@ -304,7 +304,34 @@
           <li class="md-nav__item">
   <a href="#pre-installation-task" class="md-nav__link">
     <span class="md-ellipsis">
-      Pre-installation task:
+      Pre-installation task
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-fixpack-install-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre fixpack install steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps-for-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps for Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-installation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Post Installation Steps
     </span>
   </a>
   
@@ -429,7 +456,34 @@
           <li class="md-nav__item">
   <a href="#pre-installation-task" class="md-nav__link">
     <span class="md-ellipsis">
-      Pre-installation task:
+      Pre-installation task
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-fixpack-install-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre fixpack install steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps-for-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps for Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-installation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Post Installation Steps
     </span>
   </a>
   
@@ -463,136 +517,173 @@
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
 <p>This article helps you to pursue the DB2 fixpack installation in appropriate hosts.</p>
 <h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
-<p>📌  <strong><em>No downtime is required for this activity</em></strong></p>
-<h3 id="pre-installation-task">Pre-installation task:<a class="headerlink" href="#pre-installation-task" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>  📌  Downtime is required for this activity
+</code></pre></div>
+<h4 id="pre-installation-task">Pre-installation task<a class="headerlink" href="#pre-installation-task" title="Permanent link">&para;</a></h4>
 <ol>
-<li>We should have the root access to start DB2 fix pack activity.
-   sudo su -</li>
-<li>Check the file system space available.
-    a) The Installation Path: -   /opt/IBM/db2 (At least 2GB free space should be available).
-    b) /tmp FS try to keep 4GB free space to download the software.
-    c) Please check the other db2 Filesystems. Better to keep all the db2 Filesystems below 80% used. 
-        df -h     ---&gt; for Linux
-        df -gt    ---&gt; for AIX</li>
+<li>
+<p>We should have the root access to start DB2 fix pack activity.</p>
+<div class="highlight"><pre><span></span><code> sudo su -
+</code></pre></div>
+</li>
+<li>
+<p>Check the file system space available.</p>
+<p>a) The Installation Path - /opt/IBM/db2 (At least 2GB free space should be available) <br>
+  b) /tmp FS try to keep 4GB free space to download the software. <br>
+  c) Please check the other db2 Filesystems. Better to keep all the db2 Filesystems below 80% used. <br></p>
+<div class="highlight"><pre><span></span><code> df -h     ---&gt; for Linux
+ df -gt    ---&gt; for AIX
+</code></pre></div>
+</li>
 </ol>
 <p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic1" src="../pictures/DB2_Fix_pack_Installation_1.png" /></a></p>
-<p>Pre fixpacki nstall steps: 
-1.Manual backup of Database Configuration parameters:
-   Create directory of DB2 fix pack.
-a) mkdir fixpack_V11.5.8
-b) cd fixpack_V11.5.8
-c) db2licm -l &gt; db2licm_before.out
-d) db2level &gt; db2level_before.out
-e) db2 get dbm cfg  &gt; dbmcfg_before.out
-f) db2 list db directory &gt; dbdir_before.out
-g) db2 list node directory &gt; nodedir_before.out
-h) db2set -all &gt; db2set_before.out
-i) db2 connect to <dbname>; db2 get db cfg for dbname &gt; dbcfg_<dbname>_before.out
-j) db2 list tablespaces show detail &gt; tablespaces_before.out
-k) db2look -d dbname -e -x -o db2look_before.out 
-l) db2support  . -d <dbname> -c -s 
-m) crontab -l &gt; crontab_before.out
-2. Perform database dackup.
-    a) Application team need to stop all the connected applications. Once they stopped, we will get the output like below.
- db2 list active databases (or) db2 list applications</p>
-<p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic2" src="../pictures/DB2_Fix_pack_Installation_2.png" /></a></p>
-<div class="highlight"><pre><span></span><code>b) Deactivate the database
+<h4 id="pre-fixpack-install-steps">Pre fixpack install steps<a class="headerlink" href="#pre-fixpack-install-steps" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Manual backup of Database Configuration parameters. Create directory of DB2 fix pack.</p>
+<div class="highlight"><pre><span></span><code> a) mkdir fixpack_V11.5.8
+ b) cd fixpack_V11.5.8
+ c) db2licm -l &gt; db2licm_before.out
+ d) db2level &gt; db2level_before.out
+ e) db2 get dbm cfg  &gt; dbmcfg_before.out
+ f) db2 list db directory &gt; dbdir_before.out
+ g) db2 list node directory &gt; nodedir_before.out
+ h) db2set -all &gt; db2set_before.out
+ i) db2 connect to &lt;dbname&gt;; db2 get db cfg for dbname &gt; dbcfg_&lt;dbname&gt;_before.out
+ j) db2 list tablespaces show detail &gt; tablespaces_before.out
+ k) db2look -d dbname -e -x -o db2look_before.out
+ l) db2support  . -d &lt;dbname&gt; -c -s
+ m) crontab -l &gt; crontab_before.out
 </code></pre></div>
-<p>db2 deactivate db <dbname></p>
+</li>
+<li>
+<p>Perform database backup.</p>
+</li>
+</ol>
+<p>a) Application team need to stop all the connected applications. Once they stopped, we will get the output like below.</p>
+<div class="highlight"><pre><span></span><code>     db2 list active databases (or) db2 list applications
+</code></pre></div>
+<p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic2" src="../pictures/DB2_Fix_pack_Installation_2.png" /></a></p>
+<p>b) Deactivate the database</p>
+<div class="highlight"><pre><span></span><code>        db2 deactivate db &lt;dbname&gt;
+</code></pre></div>
 <p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/DB2_Fix_pack_Installation_3.png" /></a></p>
-<p>c) Take offline database backup to TSM            <br />
-db2 backup db <dbname> use TSM 
-Steps for Installation:
-1.Stop db2 services.
-Switch to each instance and execute the following commands.
-a) Application team bring down the applications which are connected to the database.
-Make sure we don’t have any connections by using below command.
-db2 list active databases (or) db2 list applications
-b) Deactivate the database using “db2 deactivate db <dbname>”
-c) Stop the instance by using db2stop
-d) ipclean -a
-e) ps -ef|grep -v grep |grep -i db2sysc  -----&gt; (Check if db2 processes still existing or not)</p>
+<p>c) Take offline database backup to TSM</p>
+<div class="highlight"><pre><span></span><code>        db2 backup db &lt;dbname&gt; use TSM
+</code></pre></div>
+<h4 id="steps-for-installation">Steps for Installation<a class="headerlink" href="#steps-for-installation" title="Permanent link">&para;</a></h4>
+<p><img alt="➡️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/27a1.png" title=":arrow_right:" /> Stop db2 services. Switch to each instance and execute the following commands.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ensure application team brings down the application which are connected to the database.</p>
+</div>
+<p>1)Make sure we don’t have any connections by using below command.</p>
+<div class="highlight"><pre><span></span><code>     db2 list active databases (or) db2 list applications
+</code></pre></div>
+<p>2)Deactivate the database using below command</p>
+<div class="highlight"><pre><span></span><code>     db2 deactivate db &lt;dbname&gt;
+</code></pre></div>
+<p>3)Stop the instance by using</p>
+<div class="highlight"><pre><span></span><code>     db2stop
+</code></pre></div>
+<p>4)Comment to be added</p>
+<div class="highlight"><pre><span></span><code>     ipclean -a
+</code></pre></div>
+<p>5)Check if db2 processes still existing or not</p>
+<div class="highlight"><pre><span></span><code>     ps -ef|grep -v grep |grep -i db2sysc
+</code></pre></div>
 <p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic4" src="../pictures/DB2_Fix_pack_Installation_4.png" /></a>
 <a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic5" src="../pictures/DB2_Fix_pack_Installation_5.png" /></a>
 <a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic6" src="../pictures/DB2_Fix_pack_Installation_6.png" /></a></p>
-<p>2.As root, we have to install the required fixpack
-a) Go to db2 software directory where we copied &amp; extract it.
-             tar -zxvf <softwarefile.tar.gz></p>
+<p><img alt="➡️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/27a1.png" title=":arrow_right:" /> As root, we have to install the required fixpack</p>
+<p>1)Go to db2 software directory where we copied &amp; extract it.</p>
+<div class="highlight"><pre><span></span><code>         tar -zxvf &lt;softwarefile.tar.gz&gt;
+</code></pre></div>
 <p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic7" src="../pictures/DB2_Fix_pack_Installation_7.png" /></a></p>
-<p>b) Go to the “universal” path and do prereqcheck whether software is compatible with OS or not.
-      cd universal
-       ls -ltr
-    ./db2prereqcheck -v 11.5.8.0</p>
+<p>2)Go to the “universal” path and do prereqcheck whether software is compatible with OS or not.</p>
+<div class="highlight"><pre><span></span><code>     cd universal
+     ls -ltr
+     ./db2prereqcheck -v 11.5.8.0
+</code></pre></div>
 <p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic8" src="../pictures/DB2_Fix_pack_Installation_8.png" /></a>
 <a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic9" src="../pictures/DB2_Fix_pack_Installation_9.png" /></a>
 <a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic10" src="../pictures/DB2_Fix_pack_Installation_10.png" /></a></p>
-<p>c) Once all requirements matched, we can install the db2 fixpack
-                db2level  ------&gt; To know the db2 version
-   db2ls   -------&gt;  List out db2 softwares</p>
+<p>3)Once all requirements matched, we can install the db2 fixpack</p>
+<div class="highlight"><pre><span></span><code>     db2level  ------&gt; To know the db2 version
+     db2ls     ------&gt;  List out db2 softwares
+</code></pre></div>
 <p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic11" src="../pictures/DB2_Fix_pack_Installation_11.png" /></a></p>
-<p>d) Make a new directory under this path /opt/IBM/db2
-    cd /opt/IBM/db2
+<p>d) Make a new directory under this path /opt/IBM/db2</p>
+<div class="highlight"><pre><span></span><code>     cd /opt/IBM/db2
      mkdir V11.5.8.0
-     chmod 755 V11.5.8.0 
-  e) Now go to the extracted software path: 
-                 cd universal
-                ./installFixPack -b <old path> (old path we will get from db2ls)
-            Input while running above command as below screen.
-   1.Yes
-   2.Yes
-   3./opt/IBM/db2/V11.5.8.0</p>
+     chmod 755 V11.5.8.0
+</code></pre></div>
+<p>e) Now go to the extracted software path:</p>
+<div class="highlight"><pre><span></span><code>     cd universal
+     ./installFixPack -b &lt;old path&gt; (old path we will get from db2ls)
+</code></pre></div>
+<p>f) Input while running above command as below screen.</p>
+<div class="highlight"><pre><span></span><code>     1.Yes
+     2.Yes
+     3./opt/IBM/db2/V11.5.8.0
+</code></pre></div>
 <p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic12" src="../pictures/DB2_Fix_pack_Installation_12.png" /></a>
 <a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic13" src="../pictures/DB2_Fix_pack_Installation_13.png" /></a>
 <a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic14" src="../pictures/DB2_Fix_pack_Installation_14.png" /></a>
 <a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic15" src="../pictures/DB2_Fix_pack_Installation_15.png" /></a></p>
-<p>f) Validate whether db2 software is properly installed or not .
-           cd /opt/IBM/db2/V11.5.8.0/bin
-  ./db2val </p>
+<p>g) Validate whether db2 software is properly installed or not.</p>
+<div class="highlight"><pre><span></span><code>        cd /opt/IBM/db2/V11.5.8.0/bin
+        ./db2val
+</code></pre></div>
 <p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic16" src="../pictures/DB2_Fix_pack_Installation_16.png" /></a></p>
-<p>g) Check db2level</p>
+<p>h) Check db2level</p>
 <p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic17" src="../pictures/DB2_Fix_pack_Installation_17.png" /></a></p>
-<p>Post Installation Steps:
-1. Update each db2 instances as root
-cd /opt/IBM/db2/V11.5.8.0/instance
-./db2iupdt -u <fence id> <instance name>    -----&gt; (To know fenced user by using db2pd -fmp)</p>
+<h4 id="post-installation-steps">Post Installation Steps<a class="headerlink" href="#post-installation-steps" title="Permanent link">&para;</a></h4>
+<p>1.Update each db2 instances as root</p>
+<div class="highlight"><pre><span></span><code>     cd /opt/IBM/db2/V11.5.8.0/instance
+     ./db2iupdt -u &lt;fence id&gt; &lt;instance name&gt; --&gt;(Know fenced user using db2pd -fmp)
+</code></pre></div>
 <p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic18" src="../pictures/DB2_Fix_pack_Installation_18.png" /></a></p>
-<ol>
-<li>Switch to instance and update the database.
-cd /opt/IBM/db2/V11.5.8.0/bin
-./db2updv115 -d <dbname></li>
-</ol>
+<p>2.Switch to instance and update the database.</p>
+<div class="highlight"><pre><span></span><code>     cd /opt/IBM/db2/V11.5.8.0/bin
+     ./db2updv115 -d &lt;dbname&gt;
+</code></pre></div>
 <p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic19" src="../pictures/DB2_Fix_pack_Installation_19.png" /></a>
 <a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic20" src="../pictures/DB2_Fix_pack_Installation_20.png" /></a>
 <a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic21" src="../pictures/DB2_Fix_pack_Installation_21.png" /></a></p>
-<ol>
-<li>Perform the bind files after updating databases.
-• cd /home/sqllib/bnd
-• db2 connect to <dbname>
-• db2 BIND <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/db2ubind" title="GitHub User: db2ubind">@db2ubind</a>.lst BLOCKING ALL GRANT PUBLIC
-• db2 BIND <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/db2cli" title="GitHub User: db2cli">@db2cli</a>.lst BLOCKING ALL GRANT PUBLIC
-• db2 BIND <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/db2schema" title="GitHub User: db2schema">@db2schema</a>.bnd BLOCKING ALL GRANT PUBLIC
-• db2 BIND <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/db2exfmt" title="GitHub User: db2exfmt">@db2exfmt</a>.bnd BLOCKING ALL GRANT PUBLIC
-• db2rbind <dbname> -l db2rbind_dbname.log all</li>
-<li>Make sure all table spaces state should be normal.
-db2 connect to <dbname>
-db2 list tablespaces show detail  |grep -i state</li>
-</ol>
+<p>3.Perform the bind files after updating databases.</p>
+<div class="highlight"><pre><span></span><code>     cd /home/sqllib/bnd
+     db2 connect to &lt;dbname&gt;
+     db2 BIND @db2ubind.lst BLOCKING ALL GRANT PUBLIC
+     db2 BIND @db2cli.lst BLOCKING ALL GRANT PUBLIC
+     db2 BIND @db2schema.bnd BLOCKING ALL GRANT PUBLIC
+     db2 BIND @db2exfmt.bnd BLOCKING ALL GRANT PUBLIC
+     db2rbind &lt;dbname&gt; -l db2rbind_dbname.log all
+</code></pre></div>
+<p>4.Make sure all table spaces state should be normal.</p>
+<div class="highlight"><pre><span></span><code>     db2 connect to &lt;dbname&gt;
+     db2 list tablespaces show detail  |grep -i state
+</code></pre></div>
 <p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic22" src="../pictures/DB2_Fix_pack_Installation_22.png" /></a></p>
 <p>5.Take all parameter backups after fixpack activity completed.</p>
-<p>• db2licm -l &gt; db2licm_after.out
-• db2level &gt; db2level_after.out
-• db2 get dbm cfg  &gt; dbmcfg_after.out
-• db2 list db directory &gt; dbdir_after.out
-• db2 list node directory &gt; nodedir_after.out
-• db2set -all &gt; db2set_after.out
-• db2 connect to <dbname>; db2 get db cfg for dbname &gt; dbcfg_<dbname>_after.out
-• db2 list tablespaces show detail &gt; tablespaces_after.out
-• db2look -d dbname -e -x -o db2look_after.out 
-• db2support  . -d <dbname> -c -s 
-• crontab -l &gt; crontab_after.out</p>
-<p>NOTE: Need to compare parameters backups before and after and they should be expected values.
-Ex: diff db2licm_before.out db2licm_after.out
-6. Once everything is good from database side, we need to ask application team to start the applications and validate from their end. If everything is fine form application side, we are good to signoff this task.</p>
+<div class="highlight"><pre><span></span><code>     db2licm -l &gt; db2licm_after.out
+     db2level &gt; db2level_after.out
+     db2 get dbm cfg  &gt; dbmcfg_after.out
+     db2 list db directory &gt; dbdir_after.out
+     db2 list node directory &gt; nodedir_after.out
+     db2set -all &gt; db2set_after.out
+     db2 connect to &lt;dbname&gt;; db2 get db cfg for dbname &gt; dbcfg_&lt;dbname&gt;_after.out
+     db2 list tablespaces show detail &gt; tablespaces_after.out
+     db2look -d dbname -e -x -o db2look_after.out
+     db2support  . -d &lt;dbname&gt; -c -s
+     crontab -l &gt; crontab_after.out
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Need to compare parameters backups before and after and they should be expected values. <br>
+  Ex: diff db2licm_before.out db2licm_after.out</p>
+</div>
+<p>6.Once everything is good from database side, we need to ask application team to start the applications and validate from their end. If everything is fine form application side, we are good to signoff this task.</p>
 <p><a class="glightbox" href="../pictures/DB2_Fix_pack_Installation_23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic23" src="../pictures/DB2_Fix_pack_Installation_23.png" /></a></p>
 
 

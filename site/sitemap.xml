@@ -2,32 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/</loc>
-         <lastmod>2024-05-13</lastmod>
+         <lastmod>2024-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/CPC_Disk_Addition/</loc>
-         <lastmod>2024-05-13</lastmod>
+         <lastmod>2024-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/DB/</loc>
-         <lastmod>2024-05-13</lastmod>
+         <loc>https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/DB2_Fixpack_Install/</loc>
+         <lastmod>2024-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/Disruptive_OS_Activity_Prerequisites/</loc>
-         <lastmod>2024-05-13</lastmod>
+         <lastmod>2024-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/Merge_AAP_GIT/</loc>
-         <lastmod>2024-05-13</lastmod>
+         <lastmod>2024-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/Splunk_Patching_Process/</loc>
-         <lastmod>2024-05-13</lastmod>
+         <lastmod>2024-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
