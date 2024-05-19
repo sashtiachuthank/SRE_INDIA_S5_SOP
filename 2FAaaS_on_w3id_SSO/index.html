@@ -1,0 +1,632 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="RHEL based SOPs">
+      
+      
+        <meta name="author" content="Sashti Achuthan K">
+      
+      
+        <link rel="canonical" href="https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/2FAaaS_on_w3id_SSO/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../CPC_Disk_Addition/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.8">
+    
+    
+      
+        <title>2FAaaS on w3id SSO - SRE_INDIA_S5_SOP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#goal" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SRE_INDIA_S5_SOP" class="md-header__button md-logo" aria-label="SRE_INDIA_S5_SOP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SRE_INDIA_S5_SOP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2FAaaS on w3id SSO
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sashtiachuthank/SRE_INDIA_S5_SOP
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SRE_INDIA_S5_SOP" class="md-nav__button md-logo" aria-label="SRE_INDIA_S5_SOP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    SRE_INDIA_S5_SOP
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sashtiachuthank/SRE_INDIA_S5_SOP
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2FAaaS on w3id SSO
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2FAaaS on w3id SSO
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedure
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CPC_Disk_Addition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CPC Disk Addition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DB2_Fixpack_Install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DB2 Fixpack Install
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Disruptive_OS_Activity_Prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Disruptive OS Activity Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Merge_AAP_GIT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merge AAP GIT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Splunk_Patching_Process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Splunk Patching Process
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedure
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 align="center">2FAaaS on w3id SSO</h1>
+
+<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
+<p>This article helps you with the configuration steps for W3ID authentication in Linux servers.</p>
+<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
+<p>Please follow the below mentioned steps and let us know if you need help on trobleshooting.</p>
+<div class="admonition warning">
+<p class="admonition-title">Note</p>
+<p>Please keep your current session open and active to prevent a lockout from the server and use a separate window for testing!</p>
+</div>
+<p><strong><em>Step: 1</em></strong></p>
+<p>Please download the ‘ISVGForLinuxPAM106’ file attached here.</p>
+<p>============&gt;&gt;&gt;
+<a download="ISVGForLinuxPAM106.zip" href="../pictures/ISVGForLinuxPAM106.zip">ISVGForLinuxPAM106.zip</a>
+&lt;&lt;&lt;============</p>
+<p>Extract the compressed .zip file. Then, unzip the appropriate package for your version of Linux. You will need to transfer the 2 rpm files to the target host.</p>
+<p><strong><em>Step: 2</em></strong></p>
+<p>Install the 2 rpms in the server as shown below.</p>
+<p><a class="glightbox" href="../pictures/W3ID_CONFIG_1.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic1" src="../pictures/W3ID_CONFIG_1.jpg" /></a></p>
+<p><strong><em>Step: 3</em></strong></p>
+<p>Backup the below 3 files before modifying it.</p>
+<p>[root@g41xr00001283 ~]# cp /etc/pam.d/sshd /etc/pam.d/sshd_17MAY24
+[root@g41xr00001283 ~]# cp /etc/pam_ibm_auth.json /etc/pam_ibm_auth.json_17MAY24
+[root@g41xr00001283 ~]# cp /etc/ssh/sshd_config /etc/ssh/sshd_config_17MAY24</p>
+<p><strong><em>Step: 4</em></strong></p>
+<p>In /etc/pam.d/sshd file please do the modifications as shown below.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">#%PAM-1.0</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">#auth       required pam_sepermit.so</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>auth<span class="w">        </span><span class="o">[</span><span class="nv">success</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">default</span><span class="o">=</span>ignore<span class="o">]</span><span class="w">   </span>pam_exec.so<span class="w"> </span>quiet<span class="w"> </span>/usr/local/sbin/ssh-pubkey-check.prl
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>auth<span class="w">       </span>substack<span class="w"> </span>password-auth
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1">#auth       required pam_env.so</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>auth<span class="w">    </span>sufficient<span class="w"> </span>pam_ibm_auth.so<span class="w"> </span><span class="nv">id</span><span class="o">=</span>pam_ibm_auth
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1">#auth       sufficient /lib64/security/pam_duo.so</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1">#auth       requisite pam_succeed_if.so uid &gt;= 1000 quiet_success</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>auth<span class="w">       </span>required<span class="w"> </span>pam_deny.so
+</code></pre></div>
+<p><strong><em>Step: 5</em></strong></p>
+<p>Please create a perl script file and update with the below script.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">[</span>root@g41xr00001283<span class="w"> </span>~<span class="o">]</span><span class="c1"># cat /usr/local/sbin/ssh-pubkey-check.prl</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">#!/usr/bin/perl</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">if</span><span class="w"> </span><span class="o">(</span><span class="nv">$ENV</span><span class="o">{</span><span class="s1">&#39;SSH_AUTH_INFO_0&#39;</span><span class="o">}</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span>/^publickey<span class="w"> </span>/<span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>exit<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="o">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span>exit<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="o">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="o">[</span>root@g41xr00001283<span class="w"> </span>~<span class="o">]</span><span class="c1"># chmod 755 /usr/local/sbin/ssh-pubkey-check.prl</span>
+</code></pre></div>
+<p><strong><em>Step: 6</em></strong></p>
+<p>Login to the 2fa portal using below link, go to the "Manage Your Servers" option and search for the respective target server.</p>
+<p><a href="https://ies-2faaas-alias-frontend.prod.identity-services.intranet.ibm.com/">https://ies-2faaas-alias-frontend.prod.identity-services.intranet.ibm.com/</a></p>
+<p><a class="glightbox" href="../pictures/W3ID_CONFIG_2.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic2" src="../pictures/W3ID_CONFIG_2.jpg" /></a></p>
+<p><a class="glightbox" href="../pictures/W3ID_CONFIG_2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic2a" src="../pictures/W3ID_CONFIG_2a.png" /></a></p>
+<p><strong><em>Edit the <mark>'Server Information'</mark>, remove the <mark>‘Egress IP’</mark> and save that session.</em></strong></p>
+<p><a class="glightbox" href="../pictures/W3ID_CONFIG_3.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/W3ID_CONFIG_3.jpg" /></a></p>
+<p><strong><em>Copy the <mark>'Client ID'</mark> available under the w3id credentials and have it noted.</em></strong></p>
+<p><a class="glightbox" href="../pictures/W3ID_CONFIG_4.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic4" src="../pictures/W3ID_CONFIG_4.jpg" /></a></p>
+<p><strong><em>Use the <mark>'Rotate w3id Creds'</mark> option. Agree the acknowledment and click <mark>"Continue"</mark></em></strong></p>
+<p><a class="glightbox" href="../pictures/W3ID_CONFIG_5.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic5" src="../pictures/W3ID_CONFIG_5.jpg" /></a></p>
+<p><strong><em>You will get a pop-up screen as shown below. This screen will last only for  60 seconds. Copy the <mark>'Client secret'</mark> code and have it noted.</em></strong></p>
+<p><a class="glightbox" href="../pictures/W3ID_CONFIG_6.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic6" src="../pictures/W3ID_CONFIG_6.jpg" /></a></p>
+<p><strong><em>Step: 7</em></strong></p>
+<p>Replace the noted <mark>'Client secret'</mark> code in below command and execute the same. You will get a new <mark>'obf-client-secret'</mark> key and have this too noted.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">[</span>root@g41xr00001283<span class="w"> </span>~<span class="o">]</span><span class="c1"># /opt/ibm/ibm_auth/ibm_authd_64 --obf &quot;Client_Secret&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>blHt************************************y+M<span class="o">=</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="o">[</span>root@g41xr00001283<span class="w"> </span>~<span class="o">]</span><span class="c1">#</span>
+</code></pre></div>
+<p><strong><em>Step: 8</em></strong></p>
+<p>Update the noted <mark>'Client-id'</mark> and <mark>'obf-client-secret'</mark> key in the below code <mark>&lt; fill &gt;</mark> area in the json file.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">[</span>root@g41xr00001283<span class="w"> </span>~<span class="o">]</span><span class="c1"># cat /etc/pam_ibm_auth.json</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="o">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="s2">&quot;ibm-auth-api&quot;</span>:<span class="o">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="s2">&quot;client-id&quot;</span>:<span class="s2">&quot;&lt;fill&gt;&quot;</span>,
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="s2">&quot;obf-client-secret&quot;</span>:<span class="s2">&quot;&lt;fill&gt;&quot;</span>,<span class="w"> </span>/*<span class="w"> </span>Use<span class="w"> </span>/opt/ibm/ibm_auth/ibm_authd<span class="o">[</span>_64<span class="o">]</span><span class="w"> </span>--obf<span class="w"> </span>&lt;secret&gt;*/
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="s2">&quot;protocol&quot;</span>:<span class="s2">&quot;https&quot;</span>,
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="s2">&quot;host&quot;</span>:<span class="s2">&quot;login.w3.ibm.com&quot;</span>,
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="s2">&quot;port&quot;</span>:<span class="s2">&quot;443&quot;</span>,
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="s2">&quot;max-handles&quot;</span>:<span class="s2">&quot;16&quot;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="o">}</span>,
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="s2">&quot;ibm-authd&quot;</span>:<span class="o">{</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="s2">&quot;trace-file&quot;</span>:<span class="s2">&quot;/tmp/ibm_authd.log&quot;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="o">}</span>,
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="s2">&quot;pam&quot;</span>:<span class="o">{</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="s2">&quot;trace-file&quot;</span>:<span class="s2">&quot;/tmp/pam_ibm_auth.log&quot;</span>,
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="s2">&quot;pam_ibm_auth&quot;</span>:
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="o">{</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="s2">&quot;additional-args&quot;</span>:
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="o">[</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">                </span><span class="s2">&quot;auth_method=choice-then-otp&quot;</span>,
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">                </span><span class="s2">&quot;add_devices_to_choice&quot;</span>,
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">                </span><span class="s2">&quot;gecos_field=6&quot;</span>,
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">                </span><span class="s2">&quot;gecos_separator=/&quot;</span>,
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">                </span><span class="s2">&quot;exempt_group=example123&quot;</span>,
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">                </span><span class="s2">&quot;user_name_attr=emails.type%20eq%20%22work%22%20and%20emails.value&quot;</span>,
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">                </span><span class="s2">&quot;debug&quot;</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">        </span><span class="o">]</span><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="o">}</span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">JSON file Before updating</label><label for="__tabbed_1_2">JSON file After updating</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="glightbox" href="../pictures/W3ID_CONFIG_9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic9" src="../pictures/W3ID_CONFIG_9.png" /></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" href="../pictures/W3ID_CONFIG_10.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic10" src="../pictures/W3ID_CONFIG_10.jpg" /></a></p>
+</div>
+</div>
+</div>
+<p><strong><em>Step: 9</em></strong></p>
+<p>Ensure that the GECOS fields are properly updated for all user IDs as stated below. Notify to application team to update the same with the appropriate mail-id to which the authentication will be prompted.</p>
+<p><a class="glightbox" href="../pictures/W3ID_CONFIG_7.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic7" src="../pictures/W3ID_CONFIG_7.jpg" /></a></p>
+<p><strong><em>Step: 10</em></strong></p>
+<p>Then restart the sshd service.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>    # systemctl restart sshd
+</code></pre></div>
+<p><strong><em>Step: 11</em></strong></p>
+<p>Now, try to login to the same host in a duplicate session. Then you will receive the authentication screen as shown below.</p>
+<p><a class="glightbox" href="../pictures/W3ID_CONFIG_8.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic8" src="../pictures/W3ID_CONFIG_8.jpg" /></a></p>
+<p>Here I choosed "option: 1" so i received OTP to my mail-id and post entering the passcode I got my SSH session.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.indexes", "navigation.instant", "navigation.top", "navigation.tracking", "navigation.path", "tags"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
