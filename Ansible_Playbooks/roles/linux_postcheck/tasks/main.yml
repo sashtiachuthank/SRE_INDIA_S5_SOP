@@ -1,0 +1,140 @@
+
+
+    - name: Create directory if it doesn't exist
+      file:
+        path: /tmp/POSTCHECKS/{{ cr_number }}
+        state: directory
+        mode: '0755'
+    - name: Uptime of the server  
+      shell: uptime;date > /tmp/POSTCHECKS/{{ cr_number }}/uptime_post.txt
+
+    - name: register uptime of the server
+      shell: uptime;date
+      register: uptime_post
+      
+    - name: get the Hostname
+      shell: hostname
+      register: hostname
+      
+    - name: kernel version after
+      shell: uname -r > /tmp/POSTCHECKS/{{ cr_number }}/uname_post.txt
+      
+    - name: register kernel version
+      shell: uname -r
+      register: uname_post
+      
+    - name: Fetch the file
+      shell: cat /tmp/PRECHECKS/{{ cr_number }}/uname_pre.txt
+      register: old_kernel
+      
+    - name: filesystems details
+      shell: df -hTP | nl > /tmp/POSTCHECKS/{{ cr_number }}/df_post.txt
+      
+    - name: filesystems details
+      shell: df -hTP | nl
+      register: disk_post
+      
+    - name: Check if NFS filesystem exists before
+      shell: cat /tmp/PRECHECKS/{{ cr_number }}/df_pre.txt
+      register: df_pre_result
+      ignore_errors: true
+      
+    - name: Check if NFS filesystem exists before
+      shell: cat /tmp/PRECHECKS/{{ cr_number }}/df_pre.txt | grep nfs
+      register: nfs_grep_result
+      ignore_errors: true
+      
+    - name: Set fact if NFS filesystem exists before
+      set_fact:
+        nfs_filesystem_exist_before: true
+      when: nfs_grep_result.rc == 0
+      
+    - name: Set fact if NFS filesystem doesn't exist before
+      set_fact:
+        nfs_filesystem_exist_before: false
+      when: nfs_grep_result.rc != 0
+      
+    - name: Display msg if NFS is present
+      debug:
+        msg: "Filesystem is : {{ nfs_grep_result }}"
+      when: nfs_grep_result.rc == 0
+      
+    - name: Read /etc/hosts file
+      shell: cat /etc/hosts > /tmp/POSTCHECKS/{{ cr_number }}/hosts_post.txt
+      
+    - name: Read /etc/hosts file
+      shell: cat /etc/hosts
+      register: hosts_post
+      
+    - name: ulimit details
+      shell: ulimit -a > /tmp/POSTCHECKS/{{ cr_number }}/ulimit_post.txt
+      
+    - name: ulimit details
+      shell: ulimit -a
+      register: ulimit_post
+      
+    - name: vg and lv details
+      shell: vgs;lvs > /tmp/POSTCHECKS/{{ cr_number }}/vgs_lvs_post.txt
+      
+    - name: vg and lv details
+      shell: vgs;lvs
+      register: vgs_lvs_post
+      
+    - name: save the backup service status
+      shell: systemctl is-active dsmcad
+      register: dsmcad_status
+      ignore_errors: yes
+      
+    - name: Check if dynatrace service is running
+      command: systemctl is-active oneagent
+      register: oneagent_status
+      ignore_errors: yes
+      
+    - name: check OS version before activity
+      shell: cat /tmp/PRECHECKS/{{ cr_number }}/osversion_pre.txt
+      register: old_osversion
+      
+    - name: check current OS version
+      shell: cat /etc/redhat-release
+      register: cur_osversion
+      
+    - name: Check if kernel version changed
+      command: "diff -q /tmp/POSTCHECKS/{{ cr_number }}/ulimit_post.txt /tmp/PRECHECKS/{{ cr_number }}/ulimit_pre.txt"
+      register: ulimit_diff_result
+      ignore_errors: true
+      
+    - name: Check if kernel version changed
+      command: "diff -q /tmp/POSTCHECKS/{{ cr_number }}/vgs_lvs_post.txt /tmp/PRECHECKS/{{ cr_number }}/vgs_lvs_pre.txt"
+      register: vgs_lvs_diff_result
+      ignore_errors: true
+      
+    - name: Check if kernel version changed
+      command: "diff -q /tmp/POSTCHECKS/{{ cr_number }}/hosts_post.txt /tmp/PRECHECKS/{{ cr_number }}/hosts_pre.txt"
+      register: hosts_diff_result
+      ignore_errors: true
+      
+    - name: Selinux status
+      shell: getenforce
+      register: selinux_post
+      
+    - name: get old selinux status
+      shell: cat /tmp/PRECHECKS/{{ cr_number }}/selinux_pre.txt
+      register: old_selinux
+      
+    - name: Create HTML file
+      template:
+        src: diff_template.j2
+        dest: /tmp/POSTCHECKS/{{ cr_number }}/output.html
+    
+    - name: Start the Postfix service
+      command: systemctl start postfix
+      ignore_errors: yes
+      
+    - name: Send email with attachment
+      shell: "echo 'Please find the precheck report for {{ hostname.stdout }}' | mailx -s 'Attachment from Ansible' -a /tmp/POSTCHECKS/{{ cr_number }}/output.html {{ email_address }}"
+      
+    - name: remove the created files
+      shell: rm -rf /tmp/POSTCHECKS/{{ cr_number }}
+
+    - name: remove the created files
+      shell: rm -rf /tmp/PRECHECKS/{{ cr_number }}

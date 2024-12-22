@@ -1,0 +1,27 @@
+---
+- name: Manage VMware Server Snapshots
+  hosts: all
+  become: false
+  gather_facts: false
+  collections:
+    - community.vmware
+    - community.general
+  tasks:
+    - name: Manage VMware guest server Snapshots
+      block:
+        - name: Include role based on activity_type
+          include_role:
+            name: vmguests
+          vars:
+            activity_type: "{{ activity_type }}"
+            id: "{{ id }}"
+          when: activity_type in ['snapstatus', 'snapshot', 'snaprevert', 'snapdelete']
+
+#      rescue:
+#        - name: Failure message
+#          ansible.builtin.debug:
+#            msg: "An error occurred while including the role vmguests with activity_type {{ activity_type }} and {{ snapshot.id }}."
+#
+#      always:
+#        - name: End host processing
+#          meta: end_host

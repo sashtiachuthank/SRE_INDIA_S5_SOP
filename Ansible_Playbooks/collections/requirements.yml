@@ -1,0 +1,8 @@
+collections:
+  - name: community.vmware
+  - name: ansible.windows
+  - name: community.windows
+  - name: community.general
+  - name: ansible.utils
+  - name: ansible.posix
+  - name: awx.awx

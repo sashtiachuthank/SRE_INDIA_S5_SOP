@@ -1,0 +1,32 @@
+- hosts: all
+  become: no
+  gather_facts: true
+  tasks:
+    - name: This task is for Linux Servers
+      include_role:
+        name: diskspacelinux
+      when: activity_type == 'linux'
+      
+    - name: This task is for AIX Servers
+      include_role:
+        name: diskspaceaix
+      when: activity_type == 'aix'
+
+#    - name: Notify via email
+#      become: false
+#      delegate_to: localhost
+#      mail:
+#        host: "na.relay.ibm.com"
+#        from: "diskspace_@ds_c"
+#        to: "{{ email_address }}"
+#        subject: "Playbook Notification"
+#        body: |
+#          <html>
+#            <body>
+#              <p style="color: red; font-weight: bold;">Filesystems above threshold limit:</p>
+#              <p>PFB the Playbook output.</p>
+#              <p>Activity type: {{ activity_type }}</p>
+#            </body>
+#          </html>
+#        subtype: html
+#      ignore_errors: true

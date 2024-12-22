@@ -1,0 +1,7 @@
+---
+vcenter_hostname: "somename.example.com"
+datacenter: "mydc"
+validate_certs: false
+hostname: "myvm"
+vcenter_username: "vcuser@cpcad"
+vcenter_password: "P@ssw0rd"

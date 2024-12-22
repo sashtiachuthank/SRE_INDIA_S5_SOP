@@ -1,0 +1,23 @@
+
+
+    - name: Grep the filesystem which is above the threshold limit 
+      shell: df -gt  | awk 'NR==1 || $5+0 > 80'
+      register: diskspaceaix
+    - name: Print the Filesystem details 
+      debug:
+         msg: " The Filesystem which breached the threshold limits: {{ diskspaceaix.stdout_lines }}"   
+    - name: Notify via email
+      mail:
+        host: "na.relay.ibm.com"
+        from: "diskspace_@ds_c"
+        to: "{{ email_address }}"
+        subject: "Filesystems above threshold limit"
+        body: |
+          <html>
+            <body>
+              <p style="color: red; font-weight: bold;"> Filesystems above threshold limit in {{ inventory_hostname }} </p>
+               <pre>{{ diskspaceaix.stdout_lines | to_nice_json }}</pre>
+            </body>
+          </html>
+        subtype: html
+      ignore_errors: true

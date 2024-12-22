@@ -1,0 +1,38 @@
+
+    - name: Show tower_user_email
+      ansible.builtin.set_fact:
+        toweremail: "{{ tower_user_email }}"
+      no_log: true
+    - name: Grep the mail ID from GECOS
+      shell: grep {{ username }} /etc/passwd | grep -oP '[\w\.-]+@[\w\.-]+'
+      register: gecosvalue
+      no_log: true
+    - name: Compare tower_user_email and GECOS value
+      ansible.builtin.fail:
+        msg: >
+          Tower user email ({{ tower_user_email }}) does not match
+          GECOS value ({{ gecosvalue.stdout_lines | join(', ') }}).
+      when: tower_user_email not in gecosvalue.stdout_lines
+
+    - name: Check if the user exists
+      command: "id {{ username }}"
+      register: user_check
+      failed_when: user_check.rc != 0
+      changed_when: false
+
+    - name: Get password expiry info before change
+      ansible.builtin.shell: "chage -l {{ username }} | grep 'Password expires'"
+      register: user_infopre
+    - name: Change user password
+      user:
+        name: "{{ username }}"
+        password: "{{ new_password | password_hash('sha512') }}"
+    - name: Get password expiry info after change
+      ansible.builtin.shell: "chage -l {{ username }} | grep 'Password expires'"
+      register: user_infopost
+    - name: Display password reset results
+      debug:
+        msg: >
+          The password is successfully updated for {{ username }}.
+          Before: {{ user_infopre.stdout }}
+          After: {{ user_infopost.stdout }}

@@ -1,0 +1,12 @@
+---
+- name: Manage Windows Backup Agent Service
+  hosts: all
+  become: false
+  gather_facts: false
+  tasks:
+    - name: Include role based on activity_type
+      include_role:
+        name: dsmwindows
+      vars:
+        activity_type: "{{ activity_type }}"
+      when: activity_type in ['status', 'start', 'stop']

@@ -1,0 +1,16 @@
+---
+- name: Manage Backup tasks
+  block:
+
+    - name: Windows TSM Backup Agent Status
+      block:
+        - include_tasks: windsmstatus.yml
+          when: activity_type == 'status'
+    - name: Windows TSM Backup Agent Start
+      block:
+        - include_tasks: windsmstart.yml
+          when: activity_type == 'start'
+    - name: Windows TSM Backup Agent Stop
+      block:
+        - include_tasks: windsmstop.yml
+          when: activity_type == 'stop'

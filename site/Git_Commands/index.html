@@ -12,20 +12,20 @@
         <meta name="author" content="Sashti Achuthan K">
       
       
-        <link rel="canonical" href="https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/Merge_AAP_GIT/">
+        <link rel="canonical" href="https://github.com/sashtiachuthank/SRE_INDIA_S5_SOP/Git_Commands/">
       
       
-        <link rel="prev" href="../Git_Commands/">
+        <link rel="prev" href="../Disruptive_OS_Activity_Prerequisites/">
       
       
-        <link rel="next" href="../Splunk_Patching_Process/">
+        <link rel="next" href="../Merge_AAP_GIT/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.1.21">
     
     
       
-        <title>Merge AAP GIT - SRE_INDIA_S5_SOP</title>
+        <title>Git Commands - SRE_INDIA_S5_SOP</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#goal" class="md-skip">
+        <a href="#git-commands-cheat-sheet" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Merge AAP GIT
+              Git Commands
             
           </span>
         </div>
@@ -291,21 +291,6 @@
 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../Git_Commands/" class="md-nav__link">
-        Git Commands
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
     
   
   
@@ -316,12 +301,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Merge AAP GIT
+          Git Commands
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Merge AAP GIT
+        Git Commands
       </a>
       
         
@@ -338,16 +323,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#goal" class="md-nav__link">
-    Goal
+  <a href="#git-commands-cheat-sheet" class="md-nav__link">
+    Git Commands Cheat Sheet
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Commands Cheat Sheet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repository-setup-and-cloning" class="md-nav__link">
+    Repository Setup and Cloning
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#procedure" class="md-nav__link">
-    Procedure
+        
+          <li class="md-nav__item">
+  <a href="#working-directory-and-staging-area" class="md-nav__link">
+    Working Directory and Staging Area
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#committing-changes" class="md-nav__link">
+    Committing Changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branching-and-merging" class="md-nav__link">
+    Branching and Merging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-repositories" class="md-nav__link">
+    Remote Repositories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stashing-changes" class="md-nav__link">
+    Stashing Changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submodules" class="md-nav__link">
+    Submodules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-commands" class="md-nav__link">
+    Advanced Commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -355,6 +395,21 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Merge_AAP_GIT/" class="md-nav__link">
+        Merge AAP GIT
+      </a>
     </li>
   
 
@@ -399,16 +454,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#goal" class="md-nav__link">
-    Goal
+  <a href="#git-commands-cheat-sheet" class="md-nav__link">
+    Git Commands Cheat Sheet
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Commands Cheat Sheet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repository-setup-and-cloning" class="md-nav__link">
+    Repository Setup and Cloning
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#procedure" class="md-nav__link">
-    Procedure
+        
+          <li class="md-nav__item">
+  <a href="#working-directory-and-staging-area" class="md-nav__link">
+    Working Directory and Staging Area
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#committing-changes" class="md-nav__link">
+    Committing Changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branching-and-merging" class="md-nav__link">
+    Branching and Merging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-repositories" class="md-nav__link">
+    Remote Repositories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stashing-changes" class="md-nav__link">
+    Stashing Changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submodules" class="md-nav__link">
+    Submodules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-commands" class="md-nav__link">
+    Advanced Commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -432,73 +542,124 @@
 
 
 
-<h1 align="center">To Merge AAP and GITHUB accounts</h1>
+  <h1>Git Commands</h1>
 
-<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>This article helps to Merge your AAP and GITHUB accounts so that you can execute the templates in applicable hosts.</p>
-<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
-<p>Please follow the below steps for linking the AAP and GITHUB accounts.</p>
-<p><strong><em>Step: 1</em></strong></p>
-<p>Login to your GITHUB account and under your profile name select the new repository creation icon.</p>
-<figure>
-    <img alt="pic3" class="skip-lightbox" src="../pictures/Picture_Merge_AAP_GIT1.png" width="300" />
-</figure>
-<p><strong><em>Step: 2</em></strong></p>
-<p>Enter a appropriate name for the new repository. Then choose the the preferred account type as either public or private. The new repository will be created once you clicked the <mark>Create repository</mark>.</p>
-<blockquote>
+<h2 id="git-commands-cheat-sheet">Git Commands Cheat Sheet<a class="headerlink" href="#git-commands-cheat-sheet" title="Permanent link">&para;</a></h2>
+<p><strong>Table of Contents:</strong>
+- <a href="#git-commands-cheat-sheet">Git Commands Cheat Sheet</a>
+  - <a href="#repository-setup-and-cloning">Repository Setup and Cloning</a>
+  - <a href="#working-directory-and-staging-area">Working Directory and Staging Area</a>
+  - <a href="#committing-changes">Committing Changes</a>
+  - <a href="#branching-and-merging">Branching and Merging</a>
+  - <a href="#remote-repositories">Remote Repositories</a>
+  - <a href="#stashing-changes">Stashing Changes</a>
+  - <a href="#submodules">Submodules</a>
+  - <a href="#advanced-commands">Advanced Commands</a></p>
+<h3 id="repository-setup-and-cloning">Repository Setup and Cloning<a class="headerlink" href="#repository-setup-and-cloning" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Public</strong> account means it can be accessed by other accounts.</li>
-<li><strong>Private</strong> account means it will be accessed only by the creator and added contributors.</li>
+<li><code>git init</code>: Initialize a new git repository.</li>
+<li><code>git clone &lt;repository&gt;</code>: Clone an existing repository.</li>
+<li><code>git config --global user.name "&lt;name&gt;"</code>: Set the name associated with all commits.</li>
+<li><code>git config --global user.email "&lt;email&gt;"</code>: Set the email associated with all commits.</li>
 </ul>
-</blockquote>
-<p><img alt="pic3" class="skip-lightbox" src="../pictures/Picture_Merge_AAP_GIT2.png" /></p>
-<p><strong><em>Step: 3</em></strong></p>
-<p>Inside the repository as <mark>highlighted</mark> in the below image, select the <mark>create a new file</mark> option.</p>
-<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT3.png" /></a></p>
-<p><strong><em>Step: 4</em></strong></p>
-<p>Enter the script which you have prepared for execution. Save the script with <mark>'.yml'</mark> extension as shown in below image. Post feeded the script we need to commit the file.</p>
-<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT4.png" width="450" /></a>
-<a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img align="right" alt="pic3" src="../pictures/Picture_Merge_AAP_GIT5.png" width="200" /></a></p>
-<p><strong><em>Step: 5</em></strong></p>
-<p>After commiting the script, we need to create a personal access token. For creating the token please follow the path as shown in below screenshots.</p>
-<p>Profile <code>-&gt;</code> Settings <code>-&gt;</code> Developer Settings <code>-&gt;</code> Personal Access Tokens <code>-&gt;</code> <mark>Generate new token</mark>.</p>
-<p><img alt="pic3" class="skip-lightbox" src="../pictures/Picture_Merge_AAP_GIT6.png" />
-<img align="right" alt="pic3" class="skip-lightbox" src="../pictures/Picture_Merge_AAP_GIT7.png" />
-<a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT8.png" /></a></p>
-<p><strong><em>Step: 6</em></strong></p>
-<p>Give a note name to this token and enable the "repo" &amp; "notifications" then click <mark>Generate token</mark>.</p>
-<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT9.png" /></a></p>
-<p><strong><em>Step: 7</em></strong></p>
-<p>Now, we need to create a new credential in AAP. So login in to your AAP account. Select &amp; fill the page as shown in below screenshot.</p>
-<div class="highlight"><pre><span></span><code>&gt; Attach local SSH private key which is generated in your laptop.
-</code></pre></div>
-<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT10.png" /></a></p>
-<div class="admonition tip">
-<p class="admonition-title">To generate SSH key</p>
-<p>For generating the SSH key, Open the command prompt in your laptop and execute the below command by replacing the email ID with your's.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>C:<span class="se">\U</span>sers<span class="se">\0</span>04GIN744&gt;ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;sashtiachuthank@ibm.com&quot;</span>
-</code></pre></div>
-<figure markdown="span">
-<a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT12.png" width="400" /></a>
-</figure></p>
-</div>
-<p><strong><em>Step: 8</em></strong></p>
-<p>The next step will be project creation in AAP. For that we need the SSH code of the github account. So copy the SSH code as shown in below screenshot.</p>
-<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT11.png" /></a></p>
-<p><strong><em>Step: 9</em></strong></p>
-<p>In AAP, add a new project by updating the required fields as shown in below screenshot.</p>
-<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT13.png" /></a></p>
-<p><strong><em>Step: 10</em></strong></p>
-<p>Once you have created the project ensure it is in <mark><strong>Successfull</strong></mark> state.</p>
-<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic3" src="../pictures/Picture_Merge_AAP_GIT14.png" /></a></p>
-<p><strong><em>Step: 12</em></strong></p>
-<p>Then please go to the <mark>Job Template</mark> option and create a new template by looping the <strong>YML</strong> file created in github as shown in below screenshots.</p>
-<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic15" src="../pictures/Picture_Merge_AAP_GIT15.png" /></a></p>
-<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic15" src="../pictures/Picture_Merge_AAP_GIT16.png" /></a></p>
-<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic15" src="../pictures/Picture_Merge_AAP_GIT17.png" /></a></p>
-<p><strong><em>Step: 13</em></strong></p>
-<p>Now you should be able to access the script file under <mark>Templates</mark> by searching it with the saved script name.</p>
-<p><a class="glightbox" href="../pictures/Picture_Merge_AAP_GIT18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pic15" src="../pictures/Picture_Merge_AAP_GIT18.png" /></a></p>
+<h3 id="working-directory-and-staging-area">Working Directory and Staging Area<a class="headerlink" href="#working-directory-and-staging-area" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>git status</code>: Check the status of your working directory.</li>
+<li><code>git add &lt;file&gt;</code>: Add a file to the staging area.</li>
+<li><code>git add .</code>: Add all files in the working directory to the staging area.</li>
+<li><code>git rm &lt;file&gt;</code>: Remove a file from the working directory and the staging area.</li>
+<li><code>git mv &lt;old-file&gt; &lt;new-file&gt;</code>: Rename a file and update the staging area.</li>
+<li><code>git clean -n</code>: Show files that would be removed.</li>
+<li><code>git clean -f</code>: Remove untracked files.</li>
+<li><code>git clean -fd</code>: Remove untracked files and directories.</li>
+</ul>
+<h3 id="committing-changes">Committing Changes<a class="headerlink" href="#committing-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>git commit -m "&lt;message&gt;"</code>: Commit the staged changes with a descriptive message.</li>
+<li><code>git commit --amend</code>: Amend the last commit with new changes.</li>
+<li><code>git log</code>: View the commit history.</li>
+<li><code>git log --oneline</code>: View the commit history in a compact format.</li>
+<li><code>git log --graph</code>: View the commit history as a graph.</li>
+<li><code>git diff</code>: Show the differences between the working directory and the latest commit.</li>
+<li><code>git diff --staged</code>: Show the differences between the staging area and the latest commit.</li>
+<li><code>git diff &lt;commit1&gt; &lt;commit2&gt;</code>: Show the differences between two commits.</li>
+<li><code>git show &lt;commit&gt;</code>: Show the changes made in a specific commit.</li>
+</ul>
+<h3 id="branching-and-merging">Branching and Merging<a class="headerlink" href="#branching-and-merging" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>git checkout &lt;branch&gt;</code>: Switch to a different branch.</li>
+<li><code>git checkout -b &lt;new-branch&gt;</code>: Create a new branch and switch to it.</li>
+<li><code>git branch</code>: List all branches in the repository.</li>
+<li><code>git branch -m &lt;new-branch&gt;</code>: Rename the current branch.</li>
+<li><code>git branch -a</code>: List all branches, including remote branches.</li>
+<li><code>git branch -r</code>: List remote branches.</li>
+<li><code>git merge --abort</code>: Abort a merge in progress.</li>
+<li><code>git merge --continue</code>: Continue a merge after resolving conflicts.</li>
+<li><code>git branch -d &lt;branch&gt;</code>: Delete a branch (if it has been merged).</li>
+<li><code>git branch -D &lt;branch&gt;</code>: Force delete a branch.</li>
+<li><code>git merge &lt;branch&gt;</code>: Merge the specified branch into the current branch.</li>
+<li><code>git merge --no-ff &lt;branch&gt;</code>: Merge the specified branch into the current branch without fast-forwarding.</li>
+<li><code>git cherry-pick &lt;commit&gt;</code>: Apply the changes from a specific commit to the current branch.</li>
+<li><code>git cherry-pick --continue</code>: Continue cherry-picking after resolving conflicts.</li>
+<li><code>git cherry-pick --abort</code>: Abort the cherry-pick operation.</li>
+<li><code>git revert &lt;commit&gt;</code>: Create a new commit that undoes the changes from a specific commit.</li>
+</ul>
+<h3 id="remote-repositories">Remote Repositories<a class="headerlink" href="#remote-repositories" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>git remote add &lt;name&gt; &lt;url&gt;</code>: Add a remote repository.</li>
+<li><code>git remote -v</code>: List all remote repositories.</li>
+<li><code>git remote remove &lt;name&gt;</code>: Remove a remote repository.</li>
+<li><code>git fetch &lt;remote&gt;</code>: Fetch changes from a remote repository.</li>
+<li><code>git fetch --all</code>: Fetch changes from all remote repositories.</li>
+<li><code>git pull &lt;remote&gt; &lt;branch&gt;</code>: Fetch changes from a remote repository and merge them into the current branch.</li>
+<li><code>git push &lt;remote&gt; &lt;branch&gt;</code>: Push changes to a remote repository.</li>
+<li><code>git push --force &lt;remote&gt; &lt;branch&gt;</code>: Force-push changes to a remote repository, potentially overwriting existing history.</li>
+<li><code>git push --set-upstream &lt;remote&gt; &lt;branch&gt;</code>: Push changes to a remote repository and set the remote branch as the upstream branch.</li>
+<li><code>git push --all &lt;remote&gt;</code>: Push all branches to a remote repository.</li>
+<li><code>git push --tags &lt;remote&gt;</code>: Push all tags to a remote repository.</li>
+</ul>
+<h3 id="stashing-changes">Stashing Changes<a class="headerlink" href="#stashing-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>git stash</code>: Temporarily save changes in the working directory that are not ready to be committed.</li>
+<li><code>git stash list</code>: List all stashed changes.</li>
+<li><code>git stash apply</code>: Apply the stashed changes to the working directory.</li>
+<li><code>git stash drop</code>: Remove a single stash.</li>
+<li><code>git stash drop &lt;stash&gt;</code>: Remove a specific stash.</li>
+<li><code>git stash clear</code>: Remove all stashes.</li>
+<li><code>git stash pop</code>: Apply the stashed changes and remove them from the stash list.</li>
+<li><code>git stash branch &lt;branch&gt;</code>: Create a new branch and apply the stashed changes.</li>
+</ul>
+<h3 id="submodules">Submodules<a class="headerlink" href="#submodules" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>git submodule add &lt;repository&gt; &lt;path&gt;</code>: Add a submodule to the repository.</li>
+<li><code>git submodule init</code>: Initialize the submodules.</li>
+<li><code>git submodule update</code>: Update the submodules.</li>
+<li><code>git submodule foreach &lt;command&gt;</code>: Execute a command in each submodule.</li>
+<li><code>git submodule sync</code>: Synchronize the submodule URLs.</li>
+</ul>
+<h3 id="advanced-commands">Advanced Commands<a class="headerlink" href="#advanced-commands" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>git blame &lt;file&gt;</code>: Show who last modified each line of a file.</li>
+<li><code>git bisect start</code>: Start a binary search to find a specific commit.</li>
+<li><code>git bisect good &lt;commit&gt;</code>: Mark a commit as good during the binary search.</li>
+<li><code>git bisect bad &lt;commit&gt;</code>: Mark a commit as bad during the binary search.</li>
+<li><code>git bisect reset</code>: Reset the binary search.</li>
+<li><code>git reflog</code>: Show the reference log.</li>
+<li><code>git rebase &lt;base&gt;</code>: Rebase the current branch onto a new base commit.</li>
+<li><code>git rebase -i &lt;base&gt;</code>: Interactively rebase the current branch onto a new base commit.</li>
+<li><code>git rebase --abort</code>: Abort the rebase process.</li>
+<li><code>git rebase --continue</code>: Continue the rebase process after resolving conflicts.</li>
+<li><code>git rebase --skip</code>: Skip applying a specific commit during a rebase.</li>
+<li><code>git fsck</code>: Check the repository for integrity.</li>
+<li><code>git gc</code>: Clean up the repository and optimize it.</li>
+<li><code>git archive &lt;commit&gt;</code>: Create an archive of a specific commit.</li>
+<li><code>git tag</code>: List all tags in the repository.</li>
+<li><code>git tag -a &lt;tag&gt; -m "&lt;message&gt;"</code>: Create an annotated tag with a message.</li>
+<li><code>git tag -d &lt;tag&gt;</code>: Delete a tag.</li>
+<li><code>git push &lt;remote&gt; :&lt;tag&gt;</code>: Remove a tag from a remote repository.</li>
+<li><code>git fetch --prune</code>: Fetch changes from a remote repository and remove any remote-tracking branches that no longer exist on the remote.</li>
+<li><code>git remote prune &lt;remote&gt;</code>: Remove any remote-tracking branches that no longer exist on the specified remote repository.</li>
+</ul>
 
 
 

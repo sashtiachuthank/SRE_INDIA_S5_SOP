@@ -1,0 +1,22 @@
+
+
+  - name: Query the TSM Client Scheduler service
+    win_service:
+      name: "TSM Client Scheduler"
+    register: tsm_service_status
+  - name: Display the service state
+    debug:
+      msg: "The TSM Client Scheduler service is {{ tsm_service_status.state }}"
+
+  - name: Check the DSMSCHED file entry
+    win_shell: |
+      $filePath = 'C:\Program Files\Tivoli\TSM\baclient\dsmsched.log'
+      if (Test-Path -Path $filePath) {
+        Get-Content -Path $filePath -Tail 12
+      } else {
+        Write-Output "File not found: $filePath"
+      }
+    register: dsmsched_file_info
+  - name: Display DSMSCHED file information
+    debug:
+      msg: "DSMSCHED file information: {{ dsmsched_file_info.stdout_lines }}"

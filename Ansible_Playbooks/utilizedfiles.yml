@@ -1,0 +1,37 @@
+
+- name: Execute find_large_files.sh content on target servers
+  hosts: all
+  gather_facts: no
+  vars:
+    threshold: "{{ threshold | default(90) }}"
+    size_threshold: "{{ size_threshold | default('100M') }}"
+
+  tasks:
+    - name: Execute the inline find_large_files script
+      shell: |
+        THRESHOLD={{ threshold }}
+        SIZE_THRESHOLD={{ size_threshold }}
+        FILESYSTEMS=$(df -h | awk -v threshold="$THRESHOLD" 'NR>1 && $5+0 > threshold {print $6}')
+        for MOUNT_POINT in $FILESYSTEMS; do
+            echo "Checking mount point: $MOUNT_POINT"
+            find "$MOUNT_POINT"/. -xdev -type f -size +$SIZE_THRESHOLD -exec ls -lrth {} \; | sort -nr
+        done
+      register: script_output
+#    - name: Display the output of the script
+#      debug:
+#        msg: " {{script_output.stdout_lines}} "
+    - name: Notify via email
+      mail:
+        host: "na.relay.ibm.com"
+        from: "diskspace_@ds_c"
+        to: "{{ email_address }}"
+        subject: "Top files utilized the diskspace"
+        body: |
+          <html>
+            <body>
+              <p style="color: red; font-weight: bold;"> Top files utilized the diskspace are {{ inventory_hostname }} </p>
+               <pre>{{ script_output.stdout_lines | to_nice_json }}</pre>
+            </body>
+          </html>
+        subtype: html
+      ignore_errors: true

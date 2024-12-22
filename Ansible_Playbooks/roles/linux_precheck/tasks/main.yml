@@ -1,0 +1,253 @@
+
+
+    - name: Create directory if it doesn't exist
+      file:
+        path: /tmp/PRECHECKS/{{ cr_number }}
+        state: directory
+        mode: '0755'
+    - name: Uptime of the server  
+      shell: uptime;date > /tmp/PRECHECKS/{{ cr_number }}/uptime_pre.txt
+      
+    - name: Uptime of the server  
+      shell: uptime;date
+      register: uptime_pre
+      
+    - name: kernel version before
+      shell: uname -r > /tmp/PRECHECKS/{{ cr_number }}/uname_pre.txt
+      
+    - name: register kernel version
+      shell: uname -r
+      register: uname_pre
+      
+    - name: /etc/redhat-release
+      shell: cat /etc/redhat-release > /tmp/PRECHECKS/{{ cr_number }}/osversion_pre.txt
+      
+    - name: register /etc/redhat-release
+      shell: cat /etc/redhat-release
+      register: osversion_pre
+
+    - name: ifconfig
+      shell: ifconfig > /tmp/PRECHECKS/{{ cr_number }}/ifconfig_pre.txt
+      
+    - name: ifconfig
+      shell: ifconfig
+      register: ifconfig_pre
+              
+    - name: filesystems details
+      shell: df -hTP | nl > /tmp/PRECHECKS/{{ cr_number }}/df_pre.txt
+      
+    - name: filesystems details
+      shell: df -hTP | nl
+      register: disk_pre
+    
+    - name: Fetch /etc/fstab content
+      fetch:
+        src: /etc/fstab
+        dest: /tmp/PRECHECKS/{{ cr_number }}/fstab_pre.txt
+
+    - name: Read /etc/fstab content and register as a variable
+      shell: cat /etc/fstab
+      register: fstab_pre
+      
+    - name: Read /etc/hosts file
+      shell: cat /etc/hosts > /tmp/PRECHECKS/{{ cr_number }}/hosts_pre.txt
+ 
+    - name: Read /etc/hosts file
+      shell: cat /etc/hosts
+      register: hosts_pre
+      
+    - name: /etc/resolv.conf details
+      shell: cat /etc/resolv.conf > /tmp/PRECHECKS/{{ cr_number }}/resolv_pre.txt
+      
+    - name: /etc/resolv details
+      shell: cat /etc/resolv.conf
+      register: resolv_pre
+      
+    - name: ulimit details
+      shell: ulimit -a > /tmp/PRECHECKS/{{ cr_number }}/ulimit_pre.txt
+    
+    - name: ulimit details
+      shell: ulimit -a
+      register: ulimit_pre
+      
+    - name: vg and lv details
+      shell: vgs;lvs > /tmp/PRECHECKS/{{ cr_number }}/vgs_lvs_pre.txt
+    
+    - name: vg and lv details
+      shell: vgs;lvs
+      register: vgs_lvs_pre
+      
+    - name: Check if backup service is running on the server
+      shell: systemctl status dsmcad;dsmc q fi > /tmp/PRECHECKS/{{ cr_number }}/dsmcad_pre.txt
+      ignore_errors: true
+      
+    - name: save the backup service status
+      shell: systemctl status dsmcad;dsmc q fi
+      register: dsmcad_pre
+      ignore_errors: true
+      
+    - name: Check the processes which are using network ports
+      shell: lsof -nP -iTCP -iUDP > /tmp/PRECHECKS/{{ cr_number }}/lsof_pre.txt
+      ignore_errors: true
+      
+    - name: save the TCP and UDP status
+      shell: lsof -nP -iTCP -iUDP
+      register: lsof_pre
+      ignore_errors: true
+      
+    - name: Check if oneagent service is running on the server
+      shell: systemctl status oneagent > /tmp/PRECHECKS/{{ cr_number }}/oneagent_pre.txt
+      ignore_errors: true
+      
+    - name: save the backup service status
+      shell: systemctl status oneagent
+      register: oneagent_pre
+      ignore_errors: true
+      
+    - name: to view active connections
+      shell: netstat -tulpn > /tmp/PRECHECKS/{{ cr_number }}/netstat_pre.txt
+      
+    - name: Save the netstat -tulpn output
+      shell: netstat -tulpn
+      register: netstat_pre
+      
+    - name: Check iptables status
+      shell: iptables -L > /tmp/PRECHECKS/{{ cr_number }}/iptables_pre.txt
+      
+    - name: Save the iptables output
+      shell: iptables -L
+      register: iptables_pre
+
+    - name: get selinux status
+      shell: getenforce > /tmp/PRECHECKS/{{ cr_number }}/selinux_pre.txt
+
+    - name: save selinux status
+      shell: getenforce
+      register: selinux_pre
+      
+    - name: display information about running processes
+      shell: ps -aux > /tmp/PRECHECKS/{{ cr_number }}/process_pre.txt
+      
+    - name: save the process details
+      shell: ps -aux
+      register: process_pre
+      
+    - name: Check subscription-manager status on the server
+      shell: subscription-manager status;subscription-manager list --installed > /tmp/PRECHECKS/{{ cr_number }}/subscription_pre.txt
+      
+    - name: save the subscription-manager status
+      shell: subscription-manager status;subscription-manager list --installed
+      register: subscription_pre
+      
+    - name: Check the installed rpm on the server
+      shell: rpm -qa > /tmp/PRECHECKS/{{ cr_number }}/rpm_pre.txt
+      
+    - name: save the list of installed rpms
+      shell: rpm -qa
+      register: rpm_pre
+      
+    - name: shows the systemd units on the server
+      shell: systemctl list-unit-files > /tmp/PRECHECKS/{{ cr_number }}/systemd_pre.txt
+      
+    - name: save the systemd details
+      shell: systemctl list-unit-files --state=enabled
+      register: systemd_pre
+      
+    - name: Save all output to a single file
+      ansible.builtin.blockinfile:
+        path: /tmp/PRECHECKS/{{ cr_number }}/precheck_output.txt
+        block: |
+          ==========================
+          uptime of the server:
+          {{ uptime_pre.stdout }}
+          
+          ==========================
+          Kernel Version Before:
+          {{ uname_pre.stdout }}
+          
+          ==========================
+          OS Version details:
+          {{ osversion_pre.stdout }}
+          
+          =========================
+          ifconfig Output:
+          {{ ifconfig_pre.stdout }}
+          
+          ==========================
+          Filesystem Details:
+          {{ disk_pre.stdout }}
+          
+          ==========================
+          /etc/fstab content:
+          {{ fstab_pre.stdout }}
+          
+          ==========================
+          /etc/hosts Content:
+          {{ hosts_pre.stdout }}
+          
+          ==========================
+          /etc/resolv.conf details:
+          {{ resolv_pre.stdout }}
+          
+          ==========================
+          ulimit details:
+          {{ ulimit_pre.stdout }}
+          
+          =========================
+          VG and LV details:
+          {{ vgs_lvs_pre.stdout }}
+          
+          =========================
+          backup service status:
+          {{ dsmcad_pre.stdout }}
+          
+          =========================
+          Oneagent service status:
+          {{ oneagent_pre.stdout }}
+          
+          =========================
+          Process using network ports:
+          {{ lsof_pre.stdout }}
+          
+          =========================
+          Open connections:
+          {{ netstat_pre.stdout }}
+          
+          =========================
+          Selinux sttus on the server:
+          {{ selinux_pre.stdout }}
+          
+          =========================
+          Overall process details:
+          {{ process_pre.stdout }}
+          
+          =========================
+          Subscription manager status:
+          {{ subscription_pre.stdout }}
+          
+          =========================
+          List of installed packages:
+          {{ rpm_pre.stdout }}
+          
+          =========================
+          Systemd details on the server:
+          {{ systemd_pre.stdout }}
+          
+          =========================
+          
+        create: yes
+        
+        
+    - name: hostname
+      shell: hostname
+      register: hostname
+      
+    - name: Start the Postfix service
+      command: systemctl start postfix
+      ignore_errors: yes
+             
+    - name: Send email with attachment
+      shell: "echo 'Please find the precheck report for {{ hostname.stdout }}' | mailx -s 'Attachment from Ansible' -a /tmp/PRECHECKS/{{ cr_number }}/precheck_output.txt {{ email_address }}"
+
+#    - name: remove the created files
+#      shell: rm -rf /tmp/PRECHECKS/{{ cr_number }}

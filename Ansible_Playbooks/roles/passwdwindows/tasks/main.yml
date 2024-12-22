@@ -1,0 +1,27 @@
+---
+- hosts: all
+  gather_facts: no
+  vars:
+    username: "{{ user }}"
+    new_password: "{{ password }}"
+  tasks:
+    - name: Get password expiry info before change
+      win_shell: "net user {{ username }} | findstr /B /C:\"Password expires\""
+      register: user_infopre
+
+    - name: Change user password
+      win_user:
+        name: "{{ username }}"
+        password: "{{ new_password }}"
+        update_password: always
+
+    - name: Get password expiry info after change
+      win_shell: "net user {{ username }} | findstr /B /C:\"Password expires\""
+      register: user_infopost
+
+    - name: Display password reset results
+      debug:
+        msg: >
+          The password is successfully updated for {{ username }}.
+          Before: {{ user_infopre.stdout }}
+          After: {{ user_infopost.stdout }}

@@ -1,0 +1,126 @@
+---
+- name: Manage pretasks
+  block:
+    - include_tasks: pretasks.yml
+
+    - name: Find Guest's Folder using name
+      vmware_guest_find:
+        hostname: "{{ vcenter }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: no
+        name: "{{ hostname }}"
+      delegate_to: localhost
+      register: vm_folder
+
+    - name: Gather snapshot information
+      vmware_guest_snapshot_info:
+        hostname: "{{ vcenter }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: no
+        datacenter: "{{ datacenter }}"
+        folder: "{{ vm_folder['folders'][0] }}"
+        name: "{{ hostname }}"
+      delegate_to: localhost
+      register: snapshot_info
+
+    - name: Print snapshot results
+      delegate_to: localhost
+      debug:
+        msg: " This is the available snapshots {{ snapshot_info }}"
+    - name: Extract snapshot IDs
+      ansible.builtin.set_fact:
+        snapshot_ids: "{{ snapshot_info.guest_snapshots.snapshots | json_query('[*].id') }}"
+    - name: Debug extracted snapshot IDs
+      ansible.builtin.debug:
+        msg: "Extracted snapshot IDs: {{ snapshot_ids }}"
+
+    - name: Revert to the specified snapshot
+      vmware_guest_snapshot:
+        hostname: "{{ vcenter }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: no
+        datacenter: "{{ datacenter }}"
+        folder: "{{ vm_folder['folders'][0] }}"
+        name: "{{ hostname }}"
+        state: revert
+        snapshot_id: "{{ id }}"
+      delegate_to: localhost
+      when: snapshot_info.guest_snapshots is defined and
+            snapshot_info.guest_snapshots.snapshots is defined and
+            snapshot_info.guest_snapshots.snapshots | selectattr('id', 'equalto', id) | list | length > 0
+    - name: Power on the VM if it is powered off
+      vmware_guest:
+        hostname: "{{ vcenter }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: no
+        datacenter: "{{ datacenter }}"
+        folder: "{{ vm_folder['folders'][0] }}"
+        name: "{{ hostname }}"
+        state: poweredon
+      delegate_to: localhost
+      when: snapshot_info.guest_snapshots.snapshots | selectattr('id', 'equalto', id) | map(attribute='state') | first != 'poweredOn'
+
+    - name: Print snapshot revert results
+      delegate_to: localhost
+      debug:
+        msg: "ID - {{ id }} Snapshot successfully reverted for {{ inventory_hostname }} in vCenter {{ vcenter }} in datacenter {{ datacenter }} and powered_on"
+
+#- name: Manage pretasks
+#  block:
+#    - include_tasks: pretasks.yml
+#
+#    - name: Find Guest's Folder using name
+#      vmware_guest_find:
+#        hostname: "{{ vcenter }}"
+#        username: "{{ vcenter_username }}"
+#        password: "{{ vcenter_password }}"
+#        validate_certs: no
+#        name: "{{ hostname }}"
+#      delegate_to: localhost
+#      register: vm_folder
+#
+#    - name: Gather snapshot information
+#      vmware_guest_snapshot_info:
+#        hostname: "{{ vcenter }}"
+#        username: "{{ vcenter_username }}"
+#        password: "{{ vcenter_password }}"
+#        validate_certs: no
+#        datacenter: "{{ datacenter }}"
+#        folder: "{{ vm_folder['folders'][0] }}"
+#        name: "{{ hostname }}"
+#      delegate_to: localhost
+#      register: snapshot_info 
+#    - name: Revert to the specified snapshot
+#      vmware_guest_snapshot:
+#        hostname: "{{ vcenter }}"
+#        username: "{{ vcenter_username }}"
+#        password: "{{ vcenter_password }}"
+#        validate_certs: no
+#        datacenter: "{{ datacenter }}"
+#        folder: "{{ vm_folder['folders'][0] }}"
+#        name: "{{ hostname }}"
+#        state: revert
+#        snapshot_name: "{{ snapshot.id }}"
+#      delegate_to: localhost
+#      when: snapshot_info.snapshots | selectattr('id', 'equalto', snapshot.id) | list | length > 0
+#    - name: Power on the VM if it is powered off
+#      vmware_guest:
+#        hostname: "{{ vcenter }}"
+#        username: "{{ vcenter_username }}"
+#        password: "{{ vcenter_password }}"
+#        validate_certs: no
+#        datacenter: "{{ datacenter }}"
+#        folder: "{{ vm_folder['folders'][0] }}"
+#        name: "{{ hostname }}"
+#        state: powered_on
+#      delegate_to: localhost
+#      when: snapshot_info.guest_snapshots.snapshots | selectattr('id', 'equalto', snapshot.id) | map(attribute='state') | first != 'poweredOn'
+#    - name: Print snapshot revert results
+#      delegate_to: localhost
+#      debug:
+#        msg: "ID - {{ snapshot.id }} Snapshot successfully reverted for {{ inventory_hostname }} in vCenter {{ vcenter }} in datacenter {{ datacenter }}"
+#

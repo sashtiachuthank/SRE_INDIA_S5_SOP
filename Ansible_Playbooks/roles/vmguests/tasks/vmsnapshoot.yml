@@ -1,0 +1,32 @@
+---
+- name: Manage pretasks
+  block:
+    - include_tasks: pretasks.yml
+
+    - name: Find Guest's Folder using name
+      vmware_guest_find:
+        hostname: "{{ vcenter }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: no
+        name: "{{ hostname }}"
+      delegate_to: localhost
+      register: vm_folder
+    - name: Take a snapshot of the VM
+      vmware_guest_snapshot:
+        hostname: "{{ vcenter }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: no
+        datacenter: "{{ datacenter }}"
+        folder: "{{ vm_folder['folders'][0] }}"
+        name: "{{ hostname }}"
+        state: present
+        snapshot_name: "Ansible Snapshot requested by {{ vcenter_username }}"
+        description: "Snapshot created by Ansible"
+      delegate_to: localhost
+    - name: Print snapshot results
+      delegate_to: localhost
+      debug:
+        msg: "Snapshot successfully taken for {{ inventory_hostname }} in vCenter {{ vcenter }} in datacenter {{ datacenter }}"
+        

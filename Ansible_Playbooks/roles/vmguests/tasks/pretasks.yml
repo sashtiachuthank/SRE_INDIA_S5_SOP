@@ -1,0 +1,39 @@
+---
+- name: Manage precheck components
+  block:
+
+    - name: Include variables from file 
+      include_vars: 
+        file: inventory.yml
+
+    - name: Extract short hostname
+      ansible.builtin.set_fact:
+        sh: "{{ inventory_hostname.split('.')[0] }}"
+      register: sh_result
+      no_log: true
+    
+    - name: Extract hostname values
+      ansible.builtin.set_fact:
+        hostname: "{{ item.split('=')[1].strip() }}"
+      loop: "{{ inventory_list | select('string') | list }}"
+      when: item.split('=')[0].strip() == sh_result.ansible_facts.sh
+      register: hostname_result
+      no_log: true
+    
+    - name: Extract prefix from input
+      ansible.builtin.set_fact:
+        search_prefix: "{{ inventory_hostname.split('.')[0][:3] }}"
+    - name: Extract and set datacenter value
+      ansible.builtin.set_fact:
+        datacenter: "{{ item.split('=')[1].strip() }}"
+      loop: "{{ datacenters_list }}"
+      when: 
+        - item.split('=')[0].strip() | lower == search_prefix | lower
+      no_log: true
+    - name: Extract and set vcenter value
+      ansible.builtin.set_fact:
+        vcenter: "{{ item.split('=')[1].strip() }}"
+      loop: "{{ vcenter_hostnames }}"
+      when: 
+        - item.split('=')[0].strip() | lower == search_prefix | lower
+      no_log: true

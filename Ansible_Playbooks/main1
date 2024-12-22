@@ -1,0 +1,49 @@
+#create a script to check websphere application server status 
+# Content suggestion provided by Ansible Lightspeed
+- name: Create a script to check websphere application server status
+  ansible.builtin.template:
+    src: check_status.sh.j2
+    dest: /tmp/check_status.sh
+    mode: '0755'
+#modify the script to above to check websphere process with ps command  
+# Content suggestion provided by Ansible Lightspeed
+- name: Modify the script to above to check websphere process with ps command
+  ansible.builtin.command: /tmp/check_status.sh
+
+#compare output of /tmp/process.txt with current process in server & complare the output &generate html output
+# Content suggestion provided by Ansible Lightspeed
+- name: Compare output of /tmp/process.txt with current process in server
+  ansible.builtin.shell: cat /tmp/process.txt | grep -i {{ item }}
+  register: check_status_output
+  loop: "{{ process_name |flatten(levels=1) }}"
+
+- name: Complare the output
+  ansible.builtin.fail:
+    msg: "{{ _msg_ }}"
+  when: item.stdout | length == 0
+  loop: "{{ check_status_output.results }}"
+
+- name: Generate html output
+  ansible.builtin.template:
+    src: check_status.html.j2
+    dest: /tmp/check_status.html
+    mode: '0755'
+
+- name: Get current date  from setfacts 
+  # Content suggestion provided by Ansible Lightspeed
+  ansible.builtin.set_fact:
+    date: "{{ ansible_date_time.date }}"
+
+  # Content suggestion provided by Ansible Lightspeed
+  ansible.builtin.command: date +"%Y-%m-%d"
+  register: current_date
+- name: Get running JVMs  
+  # Content suggestion provided by Ansible Lightspeed
+  ansible.builtin.shell: ps -ef | grep java | grep -v grep | grep -i {{ item }} | grep
+    -v grep | wc -l
+  register: jvm_running
+  loop: "{{ process_name |flatten(levels=1) }}"
+  # Save jvm_running to a file in /tmp/ 
+   
+
+

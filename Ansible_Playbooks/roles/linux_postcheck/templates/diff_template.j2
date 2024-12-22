@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sanity Check Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f5f5f5; /* grey background */
+    }
+    h1 {
+      color: green; /* make the text green */
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #8B4513; /* light brown */
+      margin-top: 20px;
+      font-size: 16px; /* smaller font size */
+    }
+    .box {
+      background-color: #fff; /* white background for boxes */
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 15px; /* slightly reduced margin */
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+      background-color: #fff; /* white background for the table */
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 6px; /* reduced padding */
+      text-align: left;
+      font-size: 14px; /* reduced font size */
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .success {
+      color: green;
+    }
+    .failure {
+      color: red;
+    }
+    .variable-output {
+      font-size: 14px; /* reduced font size for variable outputs */
+    }
+  </style>
+</head>
+<body>
+  <h1>Sanity Check Report of: {{ hostname.stdout }}</h1>
+  <div class="box">
+    <h2 style="color: #8B4513;"> Server uptime: </h2>
+    <p class="variable-output"> {{ uptime_post.stdout }}</p>
+  </div>
+
+  <div class="box">
+    <h2 style="color: #8B4513;">Kernel Version</h2>
+    <p><strong style="font-size: 14px;">Before:</strong> <span class="variable-output">{{ old_kernel.stdout }}</span></p>
+    <p><strong style="font-size: 14px;">After:</strong> <span class="variable-output">{{ uname_post.stdout }}</span></p>
+  </div>
+
+  <div class="box">
+    <h2 style="color: #8B4513;">OS Version</h2>
+    <p><strong style="font-size: 14px;">Before:</strong> <span class="variable-output">{{ old_osversion.stdout }}</span></p>
+    <p><strong style="font-size: 14px;">After:</strong> <span class="variable-output">{{ cur_osversion.stdout }}</span></p>
+  </div>
+
+  <div class="box">
+    <h2 style="color: #8B4513;">SELinux Status</h2>
+    <p><strong style="font-size: 14px;">Before:</strong> <span class="variable-output">{{ old_selinux.stdout }}</span></p>
+    <p><strong style="font-size: 14px;">After:</strong> <span class="variable-output">{{ selinux_post.stdout }}</span></p>
+  </div>
+
+  <div class="box">
+    <h2 style="color: #8B4513;">SELinux Status</h2>
+    <p><strong style="font-size: 14px;">Before:</strong> <span class="variable-output">{{ df_pre_result.stdout }}</span></p>
+    <p><strong style="font-size: 14px;">After:</strong> <span class="variable-output">{{ disk_post.stdout }}</span></p>
+  </div>
+  
+  <div class="box">
+    <h2 style="color: #8B4513;">NFS Filesystem Existence Status</h2>
+    {% if nfs_filesystem_exist_before == true %}
+    {% else %}
+      <p>NFS filesystem was exists before activity: {{ nfs_grep_result.stdout }}</p>
+      <p> No NFS filesystem exist on the server before activity.</p>
+    {% endif %}
+  </div>
+
+  <div class="box">
+    <h2 style="color: #8B4513;"> Ulimit Difference: </h2>
+    <p class="variable-output"> {{ ulimit_diff_result.stdout }}</p>
+  </div>
+
+  <div class="box">
+    <h2 style="color: #8B4513;"> VGS_LVS Difference: </h2>
+    <p class="variable-output"> {{ vgs_lvs_diff_result.stdout }}</p>
+  </div>
+
+  <div class="box">
+    <h2 style="color: #8B4513;"> Hosts file Difference: </h2>
+    <p class="variable-output"> {{ hosts_diff_result.stdout }}</p>
+  </div>
+  
+  <div class="box">
+    <h2 style="color: #8B4513;">Service Status</h2>
+    <table>
+      <tr>
+        <th>Service</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td style="font-size: 14px;">Oneagent</td>
+        <td class="{% if oneagent_status.stdout == 'active' %}success{% else %}failure{% endif %} variable-output">{{ oneagent_status.stdout }}</td>
+      </tr>
+      <tr>
+        <td style="font-size: 14px;">Backup</td>
+        <td class="{% if dsmcad_status.stdout == 'active' %}success{% else %}failure{% endif %} variable-output">{{ dsmcad_status.stdout }}</td>
+      </tr>
+    </table>
+  </div> 
+</body>
+</html>

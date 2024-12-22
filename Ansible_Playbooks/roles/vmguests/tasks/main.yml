@@ -1,0 +1,20 @@
+---
+- name: Manage Snapshot tasks
+  block:
+
+    - name: Manage Snapshot
+      block:
+        - include_tasks: vmsnapshoot.yml
+          when: activity_type == 'snapshot'
+    - name: Manage Snapshot status
+      block:
+        - include_tasks: vmsnapstatus.yml
+          when: activity_type == 'snapstatus'
+    - name: Manage Snapshot Delete
+      block:
+        - include_tasks: vmsnapdelete.yml
+          when: activity_type == 'snapdelete' and id is defined
+    - name: Manage Snapshot Revert
+      block:
+        - include_tasks: vmsnaprevert.yml
+          when: activity_type == 'snaprevert' and id is defined

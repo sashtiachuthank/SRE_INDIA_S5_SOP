@@ -1,0 +1,12 @@
+- name: Main Playbook
+  hosts: all
+  tasks:
+    - name: Include Linux_precheck role for precheck activity
+      include_role:
+        name: linux_precheck
+      when: activity_type == 'precheck' and ansible_distribution == 'RedHat' and 'OS' in OS
+      
+    - name: Include postcheck role
+      include_role:
+        name: linux_postcheck
+      when: activity_type == 'postcheck' and ansible_distribution == 'RedHat' and 'OS' in OS

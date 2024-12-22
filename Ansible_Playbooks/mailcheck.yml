@@ -1,0 +1,38 @@
+---
+- name: Display tower mail
+  hosts: all
+  become: yes
+  gather_facts: false
+  tasks:
+    - name: Show tower_user_email
+      ansible.builtin.set_fact:
+        toweremail: "{{ tower_user_email }}"
+      no_log: true
+    - name: Grep the mail ID from GECOS
+      shell: "grep {{ username }} /etc/passwd | awk -F: '{print $5}' | awk -F/ '{print $NF}'"
+      register: gecosvalue
+      no_log: true
+    - name: Compare tower_user_email and GECOS value
+      ansible.builtin.fail:
+        msg: >
+          Tower user email ({{ tower_user_email }}) does not match
+          GECOS value ({{ gecosvalue.stdout_lines | join(', ') }}).
+      when: tower_user_email not in gecosvalue.stdout_lines
+      
+    - name: Check if the user exists
+      command: "id {{ username }}"
+      register: user_check
+      failed_when: user_check.rc != 0
+      changed_when: false
+
+    - name: Reset the user password
+      ansible.builtin.shell:
+        cmd: echo "{{ new_password }}" | passwd --stdin {{ username }}
+      register: password_reset
+      failed_when: "'passwd:  failed' in password_reset.stderr"
+      changed_when: true
+
+    - name: Channing the password as admin user
+      command: pwdadm -c {{ username }}
+      become: yes
+    

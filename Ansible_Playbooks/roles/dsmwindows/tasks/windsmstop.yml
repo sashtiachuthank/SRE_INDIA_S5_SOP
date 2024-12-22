@@ -1,0 +1,18 @@
+  - name: Query the TSM Client Scheduler service
+    win_service:
+      name: "TSM Client Scheduler"
+    register: tsm_service_status
+  - name: Display the service state
+    debug:
+      msg: "The TSM Client Scheduler service is {{ tsm_service_status.state }}"
+
+  - name: Stop the TSM Client Scheduler service if running
+    win_service:
+      name: "TSM Client Scheduler"
+      state: stopped
+    when: tsm_service_status.state == 'running'
+    register: stop_service
+  - name: Display stop service result
+    debug:
+      msg: "TSM Service stopped successfully: {{ stop_service.state }}"
+    when: tsm_service_status.state == 'running'
